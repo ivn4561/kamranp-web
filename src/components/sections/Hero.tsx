@@ -8,7 +8,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A] pt-16 md:pt-20">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
