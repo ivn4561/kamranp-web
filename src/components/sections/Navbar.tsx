@@ -41,14 +41,9 @@ export default function Navbar() {
           <a
             href="#"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2 group"
+            className="flex items-center"
           >
-            <div className="w-9 h-9 bg-[#E8832A] rounded-lg flex items-center justify-center font-black text-white text-sm tracking-tighter shadow-lg shadow-orange-900/40 group-hover:bg-[#C56E18] transition-colors">
-              K
-            </div>
-            <span className="text-white font-black text-xl tracking-wider">
-              KAMRAN<span className="text-[#E8832A]">P</span>
-            </span>
+            <img src="/logo-kamranp.svg" alt="KAMRANP" className="h-8 w-auto" />
           </a>
 
           {/* Desktop Nav */}

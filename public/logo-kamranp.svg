@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 70" fill="none">
+  <!--
+    K letterform: outer boundary traces stem + upper arm + lower arm as one polygon.
+    8-pointed star is a second subpath → evenodd rule punches it out as negative space.
+
+    K outer path points:
+      Stem top-left → stem top-right → down stem right (above upper arm) →
+      up along upper arm top edge to top-right → down right side of arm →
+      back along arm bottom to stem → 2px gap → out along lower arm top →
+      down right side → back along arm bottom → down stem right (below lower arm) →
+      stem bottom → close (left side of stem)
+
+    Star: center (25,35), outer R=13, inner r=6, 8 points, first at top (−90°).
+  -->
+  <path
+    fill-rule="evenodd"
+    fill="white"
+    d="M 2,4
+       L 19,4
+       L 19,18
+       L 60,4
+       L 60,16
+       L 19,34
+       L 19,36
+       L 60,54
+       L 60,66
+       L 19,52
+       L 19,66
+       L 2,66
+       Z
+       M 25,22
+       L 27.3,29.5
+       L 34.2,25.8
+       L 30.5,32.7
+       L 38,35
+       L 30.5,37.3
+       L 34.2,44.2
+       L 27.3,40.5
+       L 25,48
+       L 22.7,40.5
+       L 15.8,44.2
+       L 19.5,37.3
+       L 12,35
+       L 19.5,32.7
+       L 15.8,25.8
+       L 22.7,29.5
+       Z"/>
+  <!-- "AMRANP" — together with the K icon above, reads KAMRANP -->
+  <text
+    y="52"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="44"
+    letter-spacing="-0.5">
+    <tspan x="76" fill="white">AMRAN</tspan><tspan fill="#E8832A">P</tspan>
+  </text>
+</svg>
