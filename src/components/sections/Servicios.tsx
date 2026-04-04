@@ -33,17 +33,17 @@ const servicios = [
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="section-padding bg-[#0A0A0A]">
+    <section id="servicios" className="section-padding bg-[#0A1628]">
       <div className="container-max">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[#E8832A] text-sm font-semibold tracking-widest uppercase">
+          <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
             Lo que ofrecemos
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
             Nuestros servicios
           </h2>
-          <p className="text-[#666] text-lg max-w-2xl mx-auto">
+          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
             Todo lo que necesitas en un solo lugar. Rápido, seguro y a precios justos.
           </p>
         </div>
@@ -55,24 +55,24 @@ export default function Servicios() {
             return (
               <div
                 key={servicio.title}
-                className="card-dark p-6 group hover:border-[#E8832A]/40 transition-all duration-300 hover:-translate-y-1"
+                className="card-dark p-6 group hover:border-[#00D4AA]/40 transition-all duration-300 hover:-translate-y-1"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 {/* Icon */}
-                <div className="w-12 h-12 bg-[#E8832A]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#E8832A]/20 transition-colors">
-                  <Icon className="w-6 h-6 text-[#E8832A]" />
+                <div className="w-12 h-12 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#00D4AA]/20 transition-colors">
+                  <Icon className="w-6 h-6 text-[#00D4AA]" />
                 </div>
 
                 {/* Content */}
                 <h3 className="text-lg font-bold text-white mb-3">
                   {servicio.title}
                 </h3>
-                <p className="text-[#777] text-sm leading-relaxed mb-4">
+                <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
                   {servicio.description}
                 </p>
 
                 {/* Highlight tag */}
-                <div className="text-xs text-[#E8832A] font-medium border-t border-[#1E1E1E] pt-4">
+                <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-4">
                   {servicio.highlight}
                 </div>
               </div>

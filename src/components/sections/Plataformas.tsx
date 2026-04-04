@@ -6,23 +6,23 @@ const plataformas = [
     abbr: "WU",
     color: "#FFD700",
     description: "La red de transferencias más grande del mundo. Presente en más de 200 países.",
-    bgColor: "#1A1600",
+    bgColor: "#0F2040",
     borderColor: "#FFD70030",
   },
   {
     name: "Ria Money Transfer",
     abbr: "RIA",
-    color: "#E8832A",
+    color: "#F97316",
     description: "Envíos rápidos a más de 160 países con comisiones competitivas.",
-    bgColor: "#1A0E00",
-    borderColor: "#E8832A30",
+    bgColor: "#0F2040",
+    borderColor: "#F9731630",
   },
   {
     name: "MoneyGram",
     abbr: "MG",
     color: "#4A90D9",
     description: "Transferencias internacionales seguras con amplia cobertura global.",
-    bgColor: "#00101A",
+    bgColor: "#0F2040",
     borderColor: "#4A90D930",
   },
   {
@@ -30,7 +30,7 @@ const plataformas = [
     abbr: "EP",
     color: "#7FBA00",
     description: "Especialistas en envíos a Filipinas y el sudeste asiático con mejores tasas.",
-    bgColor: "#081A00",
+    bgColor: "#0F2040",
     borderColor: "#7FBA0030",
   },
 ];
@@ -55,17 +55,17 @@ const features = [
 
 export default function Plataformas() {
   return (
-    <section id="plataformas" className="section-padding bg-[#070707]">
+    <section id="plataformas" className="section-padding bg-[#061020]">
       <div className="container-max">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[#E8832A] text-sm font-semibold tracking-widest uppercase">
+          <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
             Envío de dinero
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
             Plataformas de envío
           </h2>
-          <p className="text-[#666] text-lg max-w-2xl mx-auto">
+          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
             Trabajamos con las empresas líderes en transferencias internacionales
             para ofrecerte la mejor tarifa y el mejor servicio.
           </p>
@@ -95,7 +95,7 @@ export default function Plataformas() {
               >
                 {p.name}
               </h3>
-              <p className="text-[#777] text-sm leading-relaxed">
+              <p className="text-[#94A3B8] text-sm leading-relaxed">
                 {p.description}
               </p>
             </div>
@@ -109,14 +109,14 @@ export default function Plataformas() {
             return (
               <div
                 key={f.title}
-                className="flex items-start gap-4 bg-[#111] border border-[#1E1E1E] rounded-xl p-5"
+                className="flex items-start gap-4 bg-[#0F2040] border border-[#1a3050] rounded-xl p-5"
               >
-                <div className="w-10 h-10 bg-[#E8832A]/10 rounded-lg flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-[#E8832A]" />
+                <div className="w-10 h-10 bg-[#00D4AA]/10 rounded-lg flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 text-[#00D4AA]" />
                 </div>
                 <div>
                   <div className="text-white font-semibold text-sm">{f.title}</div>
-                  <div className="text-[#666] text-sm mt-0.5">{f.desc}</div>
+                  <div className="text-[#94A3B8] text-sm mt-0.5">{f.desc}</div>
                 </div>
               </div>
             );

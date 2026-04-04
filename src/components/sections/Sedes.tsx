@@ -45,17 +45,17 @@ const sedes = [
 
 export default function Sedes() {
   return (
-    <section id="sedes" className="section-padding bg-[#0A0A0A]">
+    <section id="sedes" className="section-padding bg-[#0A1628]">
       <div className="container-max">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[#E8832A] text-sm font-semibold tracking-widest uppercase">
+          <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
             Encuéntranos
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
             Nuestras sedes
           </h2>
-          <p className="text-[#666] text-lg max-w-2xl mx-auto">
+          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
             Estamos en 4 puntos estratégicos de Madrid para que siempre tengas
             una sede KAMRANP cerca de ti.
           </p>
@@ -66,45 +66,45 @@ export default function Sedes() {
           {sedes.map((sede, i) => (
             <div
               key={sede.id}
-              className="card-dark p-6 flex flex-col gap-4 hover:border-[#E8832A]/40 hover:-translate-y-1 transition-all duration-300 group"
+              className="card-dark p-6 flex flex-col gap-4 hover:border-[#00D4AA]/40 hover:-translate-y-1 transition-all duration-300 group"
             >
               {/* Number badge */}
-              <div className="w-9 h-9 rounded-lg bg-[#E8832A]/10 border border-[#E8832A]/20 flex items-center justify-center text-[#E8832A] font-black text-sm group-hover:bg-[#E8832A]/20 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-[#00D4AA]/10 border border-[#00D4AA]/20 flex items-center justify-center text-[#00D4AA] font-black text-sm group-hover:bg-[#00D4AA]/20 transition-colors">
                 {String(i + 1).padStart(2, "0")}
               </div>
 
               {/* Name + address */}
               <div className="flex items-start gap-3 flex-1">
-                <MapPin className="w-5 h-5 text-[#E8832A] shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#00D4AA] shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-white font-bold text-base leading-tight">
                     {sede.nombre}
                   </h3>
-                  <p className="text-[#888] text-sm mt-1">{sede.direccion}</p>
-                  <p className="text-[#555] text-xs">{sede.ciudad}</p>
+                  <p className="text-[#94A3B8] text-sm mt-1">{sede.direccion}</p>
+                  <p className="text-[#64748B] text-xs">{sede.ciudad}</p>
                 </div>
               </div>
 
               {/* Details */}
-              <div className="flex flex-col gap-2.5 text-sm border-t border-[#1E1E1E] pt-4">
-                <div className="flex items-start gap-2.5 text-[#777]">
-                  <Clock className="w-4 h-4 text-[#E8832A] shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-2.5 text-sm border-t border-[#1a3050] pt-4">
+                <div className="flex items-start gap-2.5 text-[#94A3B8]">
+                  <Clock className="w-4 h-4 text-[#00D4AA] shrink-0 mt-0.5" />
                   <span className="whitespace-pre-line leading-relaxed text-xs">
                     {sede.horario}
                   </span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#777]">
-                  <Phone className="w-4 h-4 text-[#E8832A] shrink-0" />
+                <div className="flex items-center gap-2.5 text-[#94A3B8]">
+                  <Phone className="w-4 h-4 text-[#00D4AA] shrink-0" />
                   <span className="text-xs">{sede.telefono}</span>
                 </div>
               </div>
 
-              {/* CTA — "Cómo llegar" green button */}
+              {/* CTA */}
               <a
                 href={sede.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1DAA55] text-white text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200 mt-1"
+                className="flex items-center justify-center gap-2 w-full bg-[#00D4AA] hover:bg-[#00B891] text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200 mt-1"
               >
                 <Navigation className="w-4 h-4" />
                 Cómo llegar

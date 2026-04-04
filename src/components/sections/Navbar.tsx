@@ -31,7 +31,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-xl"
+          ? "bg-[#0A1628]/95 backdrop-blur-md border-b border-[#1a3050] shadow-xl"
           : "bg-transparent"
       }`}
     >
@@ -52,10 +52,10 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-[#999] hover:text-white transition-colors relative group"
+                className="text-sm font-medium text-[#94A3B8] hover:text-white transition-colors relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#E8832A] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4AA] transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </div>
@@ -76,7 +76,7 @@ export default function Navbar() {
 
           {/* Mobile menu toggle */}
           <button
-            className="md:hidden text-white p-2 hover:bg-[#1A1A1A] rounded-lg transition-colors"
+            className="md:hidden text-white p-2 hover:bg-[#132035] rounded-lg transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -86,13 +86,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0D0D0D] border-b border-[#1E1E1E]">
+        <div className="md:hidden bg-[#0C1830] border-b border-[#1a3050]">
           <div className="px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-left text-[#AAA] hover:text-white hover:bg-[#1A1A1A] px-4 py-3 rounded-lg transition-colors font-medium"
+                className="text-left text-[#94A3B8] hover:text-white hover:bg-[#132035] px-4 py-3 rounded-lg transition-colors font-medium"
               >
                 {link.label}
               </button>
