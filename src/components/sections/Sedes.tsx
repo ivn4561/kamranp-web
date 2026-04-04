@@ -1,5 +1,4 @@
-import { MapPin, Clock, Phone, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MapPin, Clock, Phone, Navigation } from "lucide-react";
 
 const sedes = [
   {
@@ -10,8 +9,7 @@ const sedes = [
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
     telefono: "+34 600 000 001",
     mapsUrl:
-      "https://www.google.com/maps/search/Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
-    color: "#E8832A",
+      "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
   },
   {
     id: 2,
@@ -20,8 +18,8 @@ const sedes = [
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
     telefono: "+34 600 000 002",
-    mapsUrl: "https://www.google.com/maps/search/Calle+Parque+Vosa+35+Madrid",
-    color: "#E8832A",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Calle+Parque+Vosa+35+Madrid",
   },
   {
     id: 3,
@@ -31,8 +29,7 @@ const sedes = [
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
     telefono: "+34 600 000 003",
     mapsUrl:
-      "https://www.google.com/maps/search/Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
-    color: "#E8832A",
+      "https://www.google.com/maps/search/?api=1&query=Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
   },
   {
     id: 4,
@@ -41,8 +38,8 @@ const sedes = [
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
     telefono: "+34 600 000 004",
-    mapsUrl: "https://www.google.com/maps/search/Calle+de+Zarat%C3%A1n+5+Madrid",
-    color: "#E8832A",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Calle+de+Zarat%C3%A1n+5+Madrid",
   },
 ];
 
@@ -72,61 +69,45 @@ export default function Sedes() {
               className="card-dark p-6 flex flex-col gap-4 hover:border-[#E8832A]/40 hover:-translate-y-1 transition-all duration-300 group"
             >
               {/* Number badge */}
-              <div className="flex items-center justify-between">
-                <div className="w-9 h-9 rounded-lg bg-[#E8832A]/10 border border-[#E8832A]/20 flex items-center justify-center text-[#E8832A] font-black text-sm group-hover:bg-[#E8832A]/20 transition-colors">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <a
-                  href={sede.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#444] hover:text-[#E8832A] transition-colors"
-                  title="Ver en Google Maps"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+              <div className="w-9 h-9 rounded-lg bg-[#E8832A]/10 border border-[#E8832A]/20 flex items-center justify-center text-[#E8832A] font-black text-sm group-hover:bg-[#E8832A]/20 transition-colors">
+                {String(i + 1).padStart(2, "0")}
               </div>
 
-              {/* Name */}
-              <div>
-                <h3 className="text-white font-bold text-base mb-1">
-                  {sede.nombre}
-                </h3>
+              {/* Name + address */}
+              <div className="flex items-start gap-3 flex-1">
+                <MapPin className="w-5 h-5 text-[#E8832A] shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-white font-bold text-base leading-tight">
+                    {sede.nombre}
+                  </h3>
+                  <p className="text-[#888] text-sm mt-1">{sede.direccion}</p>
+                  <p className="text-[#555] text-xs">{sede.ciudad}</p>
+                </div>
               </div>
 
               {/* Details */}
-              <div className="flex flex-col gap-3 text-sm flex-1">
-                <div className="flex items-start gap-2.5 text-[#888]">
-                  <MapPin className="w-4 h-4 text-[#E8832A] shrink-0 mt-0.5" />
-                  <span>
-                    {sede.direccion}
-                    <br />
-                    <span className="text-[#555]">{sede.ciudad}</span>
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 text-[#888]">
+              <div className="flex flex-col gap-2.5 text-sm border-t border-[#1E1E1E] pt-4">
+                <div className="flex items-start gap-2.5 text-[#777]">
                   <Clock className="w-4 h-4 text-[#E8832A] shrink-0 mt-0.5" />
-                  <span className="whitespace-pre-line leading-relaxed">
+                  <span className="whitespace-pre-line leading-relaxed text-xs">
                     {sede.horario}
                   </span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#888]">
+                <div className="flex items-center gap-2.5 text-[#777]">
                   <Phone className="w-4 h-4 text-[#E8832A] shrink-0" />
-                  <span>{sede.telefono}</span>
+                  <span className="text-xs">{sede.telefono}</span>
                 </div>
               </div>
 
-              {/* CTA */}
+              {/* CTA — "Cómo llegar" green button */}
               <a
                 href={sede.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full mt-2"
+                className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1DAA55] text-white text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200 mt-1"
               >
-                <Button variant="secondary" size="sm" className="w-full text-xs gap-1.5">
-                  <MapPin className="w-3.5 h-3.5" />
-                  Ver en Google Maps
-                </Button>
+                <Navigation className="w-4 h-4" />
+                Cómo llegar
               </a>
             </div>
           ))}
