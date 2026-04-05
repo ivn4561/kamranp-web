@@ -4,16 +4,27 @@ const sedes = [
   {
     id: 1,
     nombre: "KAMRANP Campamento",
-    direccion: "Calle Rodríguez San Pedro, 31",
+    direccion: "Plaza de Andrés Soloaga, 1",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
     telefono: "+34 672 818 465",
     email: "kamranp762@gmail.com",
     mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
+      "https://www.google.com/maps/search/?api=1&query=Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
   },
   {
     id: 2,
+    nombre: "KAMRANP Rodríguez San Pedro",
+    direccion: "Calle Rodríguez San Pedro, 31",
+    ciudad: "Madrid",
+    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
+    telefono: "Próximamente",
+    email: null,
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
+  },
+  {
+    id: 3,
     nombre: "KAMRANP Parque Vosa",
     direccion: "Calle Parque Vosa, 35",
     ciudad: "Madrid",
@@ -22,17 +33,6 @@ const sedes = [
     email: null,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Calle+Parque+Vosa+35+Madrid",
-  },
-  {
-    id: 3,
-    nombre: "KAMRANP Soloaga",
-    direccion: "Plaza de Andrés Soloaga, 1",
-    ciudad: "Madrid",
-    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "Próximamente",
-    email: null,
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
   },
   {
     id: 4,
