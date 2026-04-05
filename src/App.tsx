@@ -7,10 +7,11 @@ import Sedes from "@/components/sections/Sedes";
 import Contacto from "@/components/sections/Contacto";
 import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
+import SedesPage from "@/pages/SedesPage";
 
 function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#0A1628]">
       <Navbar />
       <main>
         <Hero />
@@ -30,6 +31,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/sedes" element={<SedesPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>

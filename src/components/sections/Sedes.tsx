@@ -4,16 +4,27 @@ const sedes = [
   {
     id: 1,
     nombre: "KAMRANP Campamento",
-    direccion: "Calle Rodríguez San Pedro, 31",
+    direccion: "Plaza de Andrés Soloaga, 1",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
     telefono: "+34 672 818 465",
     email: "kamranp762@gmail.com",
     mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
+      "https://www.google.com/maps/search/?api=1&query=Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
   },
   {
     id: 2,
+    nombre: "KAMRANP Argüelles",
+    direccion: "Calle Rodríguez San Pedro, 31",
+    ciudad: "Madrid",
+    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
+    telefono: "+34 675 030 620",
+    email: null,
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
+  },
+  {
+    id: 3,
     nombre: "KAMRANP Parque Vosa",
     direccion: "Calle Parque Vosa, 35",
     ciudad: "Madrid",
@@ -22,17 +33,6 @@ const sedes = [
     email: null,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Calle+Parque+Vosa+35+Madrid",
-  },
-  {
-    id: 3,
-    nombre: "KAMRANP Soloaga",
-    direccion: "Plaza de Andrés Soloaga, 1",
-    ciudad: "Madrid",
-    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "Próximamente",
-    email: null,
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
   },
   {
     id: 4,
@@ -47,23 +47,25 @@ const sedes = [
   },
 ];
 
-export default function Sedes() {
+export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
     <section id="sedes" className="section-padding bg-[#0A1628]">
       <div className="container-max">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
-            Encuéntranos
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
-            Nuestras sedes
-          </h2>
-          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
-            Estamos en 4 puntos estratégicos de Madrid para que siempre tengas
-            una sede KAMRANP cerca de ti.
-          </p>
-        </div>
+        {/* Header — hidden when rendered inside SedesPage (which has its own heading) */}
+        {!hideHeader && (
+          <div className="text-center mb-16">
+            <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
+              Encuéntranos
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
+              Nuestras sedes
+            </h2>
+            <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
+              Estamos en 4 puntos estratégicos de Madrid para que siempre tengas
+              una sede KAMRANP cerca de ti.
+            </p>
+          </div>
+        )}
 
         {/* Sedes grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
