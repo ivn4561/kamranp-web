@@ -1,13 +1,14 @@
-import { MapPin, Clock, Phone, Navigation } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, Navigation } from "lucide-react";
 
 const sedes = [
   {
     id: 1,
-    nombre: "KAMRANP Centro",
+    nombre: "KAMRANP Campamento",
     direccion: "Calle Rodríguez San Pedro, 31",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "+34 600 000 001",
+    telefono: "+34 672 818 465",
+    email: "kamranp762@gmail.com",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
   },
@@ -17,7 +18,8 @@ const sedes = [
     direccion: "Calle Parque Vosa, 35",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "+34 600 000 002",
+    telefono: "Próximamente",
+    email: null,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Calle+Parque+Vosa+35+Madrid",
   },
@@ -27,7 +29,8 @@ const sedes = [
     direccion: "Plaza de Andrés Soloaga, 1",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "+34 600 000 003",
+    telefono: "Próximamente",
+    email: null,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Plaza+de+Andr%C3%A9s+Soloaga+1+Madrid",
   },
@@ -37,7 +40,8 @@ const sedes = [
     direccion: "Calle de Zaratán, 5",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "+34 600 000 004",
+    telefono: "Próximamente",
+    email: null,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Calle+de+Zarat%C3%A1n+5+Madrid",
   },
@@ -97,6 +101,17 @@ export default function Sedes() {
                   <Phone className="w-4 h-4 text-[#00D4AA] shrink-0" />
                   <span className="text-xs">{sede.telefono}</span>
                 </div>
+                {sede.email && (
+                  <div className="flex items-center gap-2.5 text-[#94A3B8]">
+                    <Mail className="w-4 h-4 text-[#00D4AA] shrink-0" />
+                    <a
+                      href={`mailto:${sede.email}`}
+                      className="text-xs hover:text-[#00D4AA] transition-colors"
+                    >
+                      {sede.email}
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* CTA */}
