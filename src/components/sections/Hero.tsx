@@ -20,12 +20,11 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
-        <Link
-          to="/sedes"
-          className="inline-flex items-center gap-2 bg-[#00D4AA]/10 border border-[#00D4AA]/30 text-[#00D4AA] text-sm font-medium px-4 py-2 rounded-full mb-8 hover:bg-[#00D4AA]/20 hover:border-[#00D4AA]/50 transition-colors"
-        >
-          <Globe className="w-4 h-4" />
-          4 sedes en Madrid
+        <Link to="/sedes">
+          <span className="inline-flex items-center gap-2 bg-[#00D4AA]/10 border border-[#00D4AA]/30 text-[#00D4AA] text-sm font-medium px-4 py-2 rounded-full mb-8 hover:bg-[#00D4AA]/20 hover:border-[#00D4AA]/50 transition-colors">
+            <Globe className="w-4 h-4" />
+            4 sedes en Madrid
+          </span>
         </Link>
 
         {/* Headline */}
