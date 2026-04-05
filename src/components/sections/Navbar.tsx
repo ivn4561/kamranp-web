@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navLinks = [
+const scrollLinks = [
   { href: "#servicios", label: "Servicios" },
   { href: "#plataformas", label: "Plataformas" },
-  { href: "#sedes", label: "Nuestras Sedes" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -48,7 +48,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {scrollLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
@@ -58,6 +58,13 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4AA] transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
+            <Link
+              to="/sedes"
+              className="text-sm font-medium text-[#94A3B8] hover:text-white transition-colors relative group"
+            >
+              Nuestras Sedes
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4AA] transition-all duration-300 group-hover:w-full" />
+            </Link>
           </div>
 
           {/* CTA */}
@@ -88,7 +95,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-[#0C1830] border-b border-[#1a3050]">
           <div className="px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
+            {scrollLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
@@ -97,6 +104,13 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
+            <Link
+              to="/sedes"
+              onClick={() => setIsOpen(false)}
+              className="text-left text-[#94A3B8] hover:text-white hover:bg-[#132035] px-4 py-3 rounded-lg transition-colors font-medium"
+            >
+              Nuestras Sedes
+            </Link>
             <div className="pt-2">
               <Button
                 className="w-full"

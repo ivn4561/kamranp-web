@@ -1,12 +1,8 @@
+import { Link } from "react-router-dom";
 import { MessageCircle, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628] pt-16 md:pt-20">
       {/* Background grid */}
@@ -59,15 +55,12 @@ export default function Hero() {
             <MessageCircle className="w-5 h-5" />
             Escríbenos por WhatsApp
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="text-base px-8 py-4 h-auto"
-            onClick={() => scrollToSection("#sedes")}
-          >
-            Ver nuestras sedes
-            <ArrowRight className="w-5 h-5" />
-          </Button>
+          <Link to="/sedes">
+            <Button variant="outline" size="lg" className="text-base px-8 py-4 h-auto">
+              Ver nuestras sedes
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+          </Link>
         </div>
 
         {/* Stats */}

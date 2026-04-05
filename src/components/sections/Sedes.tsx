@@ -14,11 +14,11 @@ const sedes = [
   },
   {
     id: 2,
-    nombre: "KAMRANP Rodríguez San Pedro",
+    nombre: "KAMRANP Argüelles",
     direccion: "Calle Rodríguez San Pedro, 31",
     ciudad: "Madrid",
     horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
-    telefono: "Próximamente",
+    telefono: "+34 675 030 620",
     email: null,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Calle+Rodr%C3%ADguez+San+Pedro+31+Madrid",
@@ -47,23 +47,25 @@ const sedes = [
   },
 ];
 
-export default function Sedes() {
+export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
     <section id="sedes" className="section-padding bg-[#0A1628]">
       <div className="container-max">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
-            Encuéntranos
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
-            Nuestras sedes
-          </h2>
-          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
-            Estamos en 4 puntos estratégicos de Madrid para que siempre tengas
-            una sede KAMRANP cerca de ti.
-          </p>
-        </div>
+        {/* Header — hidden when rendered inside SedesPage (which has its own heading) */}
+        {!hideHeader && (
+          <div className="text-center mb-16">
+            <span className="text-[#00D4AA] text-sm font-semibold tracking-widest uppercase">
+              Encuéntranos
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-white mt-3 mb-4">
+              Nuestras sedes
+            </h2>
+            <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
+              Estamos en 4 puntos estratégicos de Madrid para que siempre tengas
+              una sede KAMRANP cerca de ti.
+            </p>
+          </div>
+        )}
 
         {/* Sedes grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
