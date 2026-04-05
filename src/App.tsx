@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToHash from "@/components/ScrollToHash";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Servicios from "@/components/sections/Servicios";
@@ -29,6 +30,8 @@ function HomePage() {
 export default function App() {
   return (
     <BrowserRouter>
+      {/* Handles /#hash scroll after every navigation */}
+      <ScrollToHash />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/sedes" element={<SedesPage />} />
