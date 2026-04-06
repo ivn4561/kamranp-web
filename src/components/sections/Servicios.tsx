@@ -19,15 +19,15 @@ const servicios = [
     icon: Printer,
     title: "Impresiones y fotocopias",
     description:
-      "Servicio completo de impresión en color y blanco y negro, fotocopias, escaneo de documentos y plastificado. Rápido y económico.",
-    highlight: "Color · B/N · Escaneo · Plastificado",
+      "Servicio completo de impresión en color y blanco y negro, fotocopias y escaneo de documentos. Rápido y económico.",
+    highlight: "Color · B/N · Escaneo",
   },
   {
     icon: Headphones,
-    title: "Accesorios tecnológicos",
+    title: "Accesorios tecnológicos y móviles",
     description:
-      "Venta de auriculares, cargadores, fundas para móvil, cables y otros accesorios tecnológicos a precios competitivos.",
-    highlight: "Fundas · Cargadores · Auriculares · Cables",
+      "Venta de móviles, auriculares, cargadores, fundas, cables y otros accesorios tecnológicos a precios competitivos.",
+    highlight: "Móviles · Fundas · Cargadores · Auriculares · Cables",
   },
 ];
 

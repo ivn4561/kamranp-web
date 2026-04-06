@@ -6,7 +6,7 @@ const sedes = [
     nombre: "KAMRANP Campamento",
     direccion: "Plaza de Andrés Soloaga, 1",
     ciudad: "Madrid",
-    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
+    horario: "Lun–Sáb: 10:00–22:00  |  Dom: 10:00–22:00",
     telefono: "+34 672 818 465",
     email: "kamranp762@gmail.com",
     mapsUrl:
@@ -17,7 +17,7 @@ const sedes = [
     nombre: "KAMRANP Argüelles",
     direccion: "Calle Rodríguez San Pedro, 31",
     ciudad: "Madrid",
-    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
+    horario: "Lun–Sáb: 10:00–22:00  |  Dom: 10:00–22:00",
     telefono: "+34 675 030 620",
     email: null,
     mapsUrl:
@@ -28,7 +28,7 @@ const sedes = [
     nombre: "KAMRANP Parque Vosa",
     direccion: "Calle Parque Vosa, 35",
     ciudad: "Madrid",
-    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
+    horario: "Lun–Sáb: 10:00–22:00  |  Dom: 10:00–22:00",
     telefono: "Próximamente",
     email: null,
     mapsUrl:
@@ -39,7 +39,7 @@ const sedes = [
     nombre: "KAMRANP Zaratán",
     direccion: "Calle de Zaratán, 5",
     ciudad: "Madrid",
-    horario: "Lun–Sáb: 9:00–21:00  |  Dom: 10:00–20:00",
+    horario: "Lun–Sáb: 10:00–22:00  |  Dom: 10:00–22:00",
     telefono: "Próximamente",
     email: null,
     mapsUrl:

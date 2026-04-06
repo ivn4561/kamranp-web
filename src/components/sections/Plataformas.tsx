@@ -29,9 +29,17 @@ const plataformas = [
     name: "Europhil",
     abbr: "EP",
     color: "#7FBA00",
-    description: "Especialistas en envíos a Filipinas y el sudeste asiático con mejores tasas.",
+    description: "Especialistas en envíos a Filipinas y el sudeste asiático. Tasas muy competitivas en transferencias bancarias.",
     bgColor: "#0F2040",
     borderColor: "#7FBA0030",
+  },
+  {
+    name: "I-Transfer",
+    abbr: "IT",
+    color: "#00D4AA",
+    description: "Plataforma de transferencias internacionales con tarifas competitivas y servicio ágil.",
+    bgColor: "#0F2040",
+    borderColor: "#00D4AA30",
   },
 ];
 
