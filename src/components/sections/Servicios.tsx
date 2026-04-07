@@ -7,6 +7,16 @@ const servicios = [
     description:
       "Transfiere dinero a cualquier parte del mundo de forma rápida, segura y con las mejores tasas del mercado. Trabajamos con las principales plataformas internacionales.",
     highlight: "Western Union · Ria · MoneyGram · Europhil",
+    back: {
+      title: "Plataformas disponibles",
+      items: [
+        "Western Union",
+        "Ria Money Transfer",
+        "MoneyGram",
+        "Europhil",
+        "I-Transfer",
+      ],
+    },
   },
   {
     icon: Smartphone,
@@ -14,6 +24,20 @@ const servicios = [
     description:
       "Recarga el móvil de tus familiares en cualquier país del mundo al instante. Cobertura en más de 150 operadoras internacionales.",
     highlight: "Recarga internacional al instante",
+    back: {
+      title: "Operadores disponibles",
+      items: [
+        "Movistar",
+        "Vodafone",
+        "Orange",
+        "MásMóvil",
+        "Yoigo",
+        "Lebara",
+        "Lycamobile",
+        "Digi",
+      ],
+      footer: "Recargas nacionales e internacionales",
+    },
   },
   {
     icon: Printer,
@@ -21,6 +45,15 @@ const servicios = [
     description:
       "Servicio completo de impresión en color y blanco y negro, fotocopias y escaneo de documentos. Rápido y económico.",
     highlight: "Color · B/N · Escaneo",
+    back: {
+      title: "Nuestros servicios de impresión",
+      items: [
+        "Impresión color",
+        "Impresión B/N",
+        "Fotocopia B/N",
+        "Escáner de documentos",
+      ],
+    },
   },
   {
     icon: Headphones,
@@ -28,6 +61,17 @@ const servicios = [
     description:
       "Venta de móviles, auriculares, cargadores, fundas, cables y otros accesorios tecnológicos a precios competitivos.",
     highlight: "Móviles · Fundas · Cargadores · Auriculares · Cables",
+    back: {
+      title: "Lo que encontrarás",
+      items: [
+        "Power Banks",
+        "Auriculares",
+        "Fundas",
+        "Teléfonos móviles",
+        "Cargadores",
+        "Cables",
+      ],
+    },
   },
 ];
 
@@ -50,30 +94,79 @@ export default function Servicios() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {servicios.map((servicio, i) => {
+          {servicios.map((servicio) => {
             const Icon = servicio.icon;
             return (
               <div
                 key={servicio.title}
-                className="card-dark p-6 group hover:border-[#00D4AA]/40 transition-all duration-300 hover:-translate-y-1"
-                style={{ animationDelay: `${i * 100}ms` }}
+                className="group"
+                style={{ perspective: "1000px", height: "280px" }}
               >
-                {/* Icon */}
-                <div className="w-12 h-12 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#00D4AA]/20 transition-colors">
-                  <Icon className="w-6 h-6 text-[#00D4AA]" />
-                </div>
+                {/* Flip container */}
+                <div
+                  className="relative w-full h-full transition-transform duration-500"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: "rotateY(0deg)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.transform =
+                      "rotateY(180deg)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.transform =
+                      "rotateY(0deg)";
+                  }}
+                >
+                  {/* Front face */}
+                  <div
+                    className="card-dark p-6 absolute inset-0 flex flex-col"
+                    style={{ backfaceVisibility: "hidden" }}
+                  >
+                    <div className="w-12 h-12 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-5">
+                      <Icon className="w-6 h-6 text-[#00D4AA]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3">
+                      {servicio.title}
+                    </h3>
+                    <p className="text-[#94A3B8] text-sm leading-relaxed mb-4 flex-1">
+                      {servicio.description}
+                    </p>
+                    <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-4">
+                      {servicio.highlight}
+                    </div>
+                  </div>
 
-                {/* Content */}
-                <h3 className="text-lg font-bold text-white mb-3">
-                  {servicio.title}
-                </h3>
-                <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
-                  {servicio.description}
-                </p>
-
-                {/* Highlight tag */}
-                <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-4">
-                  {servicio.highlight}
+                  {/* Back face */}
+                  <div
+                    className="card-dark border-[#00D4AA]/40 p-6 absolute inset-0 flex flex-col"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                    }}
+                  >
+                    <div className="w-12 h-12 bg-[#00D4AA]/20 rounded-xl flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-[#00D4AA]" />
+                    </div>
+                    <h3 className="text-sm font-bold text-[#00D4AA] uppercase tracking-wider mb-4">
+                      {servicio.back.title}
+                    </h3>
+                    <ul className="flex flex-wrap gap-2 flex-1">
+                      {servicio.back.items.map((item) => (
+                        <li
+                          key={item}
+                          className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2.5 py-1 rounded-full"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    {"footer" in servicio.back && servicio.back.footer && (
+                      <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-3 mt-3">
+                        {servicio.back.footer}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             );
