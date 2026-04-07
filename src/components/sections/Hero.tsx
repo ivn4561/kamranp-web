@@ -49,14 +49,15 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            size="lg"
-            className="text-base px-8 py-4 h-auto shadow-2xl shadow-teal-900/30"
-            onClick={() => window.open("https://wa.me/34600000000", "_blank")}
-          >
-            <MessageCircle className="w-5 h-5" />
-            Escríbenos por WhatsApp
-          </Button>
+          <Link to="/contacto">
+            <Button
+              size="lg"
+              className="text-base px-8 py-4 h-auto shadow-2xl shadow-teal-900/30"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Escríbenos por WhatsApp
+            </Button>
+          </Link>
           <Link to="/sedes">
             <Button variant="outline" size="lg" className="text-base px-8 py-4 h-auto">
               Ver nuestras sedes

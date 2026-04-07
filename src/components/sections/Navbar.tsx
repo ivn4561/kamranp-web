@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { to: "/#servicios",   label: "Servicios"     },
   { to: "/#plataformas", label: "Plataformas"   },
-  { to: "/#contacto",    label: "Contacto"      },
+  { to: "/contacto",     label: "Contacto"      },
   { to: "/sedes",        label: "Nuestras Sedes" },
 ];
 
@@ -50,18 +49,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              size="sm"
-              onClick={() => window.open("https://wa.me/34672818465", "_blank")}
-              className="gap-2"
-            >
-              <Phone className="w-4 h-4" />
-              WhatsApp
-            </Button>
-          </div>
-
           {/* Mobile toggle */}
           <button
             className="md:hidden text-white p-2 hover:bg-[#132035] rounded-lg transition-colors"
@@ -86,15 +73,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2">
-              <Button
-                className="w-full"
-                onClick={() => window.open("https://wa.me/34672818465", "_blank")}
-              >
-                <Phone className="w-4 h-4" />
-                Contactar por WhatsApp
-              </Button>
-            </div>
           </div>
         </div>
       )}

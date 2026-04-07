@@ -9,6 +9,7 @@ import Contacto from "@/components/sections/Contacto";
 import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 import SedesPage from "@/pages/SedesPage";
+import ContactoPage from "@/pages/ContactoPage";
 
 function HomePage() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/sedes" element={<SedesPage />} />
+        <Route path="/contacto" element={<ContactoPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
