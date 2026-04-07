@@ -61,6 +61,8 @@ const features = [
   },
 ];
 
+const CARD_HEIGHT = 260;
+
 export default function Plataformas() {
   return (
     <section id="plataformas" className="section-padding bg-[#061020]">
@@ -79,33 +81,106 @@ export default function Plataformas() {
           </p>
         </div>
 
-        {/* Platform cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        {/* Platform flip cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-16">
           {plataformas.map((p) => (
             <div
               key={p.name}
-              className="rounded-xl border p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300"
-              style={{
-                backgroundColor: p.bgColor,
-                borderColor: p.borderColor,
-              }}
+              style={{ perspective: "1000px", height: `${CARD_HEIGHT}px` }}
             >
-              {/* Logo circle */}
+              {/* Flip container */}
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center font-black text-lg mb-4"
-                style={{ backgroundColor: p.color + "20", color: p.color }}
+                className="relative w-full h-full transition-transform duration-500"
+                style={{ transformStyle: "preserve-3d" }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform =
+                    "rotateY(180deg)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform =
+                    "rotateY(0deg)";
+                }}
               >
-                {p.abbr}
+                {/* Front face */}
+                <div
+                  className="absolute inset-0 rounded-xl border p-6 flex flex-col items-center text-center overflow-hidden"
+                  style={{
+                    backgroundColor: p.bgColor,
+                    borderColor: p.borderColor,
+                    backfaceVisibility: "hidden",
+                  }}
+                >
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center font-black text-lg mb-4 shrink-0"
+                    style={{ backgroundColor: p.color + "20", color: p.color }}
+                  >
+                    {p.abbr}
+                  </div>
+                  <h3 className="font-bold text-base mb-2 shrink-0" style={{ color: p.color }}>
+                    {p.name}
+                  </h3>
+                  <p className="text-[#94A3B8] text-sm leading-relaxed overflow-hidden">
+                    {p.description}
+                  </p>
+                </div>
+
+                {/* Back face */}
+                <div
+                  className="absolute inset-0 rounded-xl border p-5 flex flex-col overflow-hidden"
+                  style={{
+                    backgroundColor: p.bgColor,
+                    borderColor: p.color + "60",
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                  }}
+                >
+                  {/* Back header */}
+                  <div className="flex items-center gap-2 mb-4 shrink-0">
+                    <div
+                      className="w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0"
+                      style={{ backgroundColor: p.color + "20", color: p.color }}
+                    >
+                      {p.abbr}
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider" style={{ color: p.color }}>
+                      ¿Qué necesitas?
+                    </span>
+                  </div>
+
+                  {/* ENVIAR section */}
+                  <div className="mb-3">
+                    <p className="text-[#64748B] text-xs font-semibold uppercase tracking-wider mb-1.5">
+                      Para enviar
+                    </p>
+                    <ul className="space-y-1">
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-xs mt-0.5" style={{ color: p.color }}>•</span>
+                        <span className="text-white text-xs">Pasaporte o DNI <span className="text-[#64748B]">(obligatorio)</span></span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-xs mt-0.5" style={{ color: p.color }}>•</span>
+                        <span className="text-white text-xs">Permiso de residencia o NIE</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="border-t mb-3" style={{ borderColor: p.color + "30" }} />
+
+                  {/* RECIBIR section */}
+                  <div>
+                    <p className="text-[#64748B] text-xs font-semibold uppercase tracking-wider mb-1.5">
+                      Para recibir
+                    </p>
+                    <ul className="space-y-1">
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-xs mt-0.5" style={{ color: p.color }}>•</span>
+                        <span className="text-white text-xs">Mismos documentos en físico <span className="text-[#64748B]">(obligatorio)</span></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <h3
-                className="font-bold text-base mb-2"
-                style={{ color: p.color }}
-              >
-                {p.name}
-              </h3>
-              <p className="text-[#94A3B8] text-sm leading-relaxed">
-                {p.description}
-              </p>
             </div>
           ))}
         </div>
