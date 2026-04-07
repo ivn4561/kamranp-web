@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
 
 const servicios = [
@@ -16,21 +17,7 @@ const sedes = [
   "Calle de Zaratán, 5 · Madrid",
 ];
 
-const scrollTo = (id: string) => {
-  if (window.location.pathname !== "/") {
-    window.location.href = "/#" + id;
-    return;
-  }
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
-
-const goTo = (path: string) => {
-  window.location.href = path;
-};
-
-const linkClass =
-  "text-[#64748B] text-sm hover:text-[#00D4AA] transition-colors cursor-pointer text-left";
+const linkClass = "text-[#64748B] text-sm hover:text-[#00D4AA] transition-colors";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,8 +28,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-4 cursor-pointer" onClick={() => goTo("/")}>
-              <img src="/logo-kamranp.svg" alt="KAMRANP" className="h-7 w-auto" />
+            <div className="mb-4">
+              <Link to="/">
+                <img src="/logo-kamranp.svg" alt="KAMRANP" className="h-7 w-auto" />
+              </Link>
             </div>
             <p className="text-[#64748B] text-sm leading-relaxed mb-5">
               Tu locutorio de confianza en Madrid. Conectamos tu mundo con los mejores servicios de transferencia y comunicación.
@@ -60,9 +49,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {servicios.map((s) => (
                 <li key={s}>
-                  <button className={linkClass} onClick={() => scrollTo("servicios")}>
-                    {s}
-                  </button>
+                  <Link to="/#servicios" className={linkClass}>{s}</Link>
                 </li>
               ))}
             </ul>
@@ -76,9 +63,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {plataformas.map((p) => (
                 <li key={p}>
-                  <button className={linkClass} onClick={() => scrollTo("plataformas")}>
-                    {p}
-                  </button>
+                  <Link to="/#plataformas" className={linkClass}>{p}</Link>
                 </li>
               ))}
             </ul>
@@ -92,13 +77,10 @@ export default function Footer() {
             <ul className="space-y-3">
               {sedes.map((sede) => (
                 <li key={sede}>
-                  <button
-                    className={`flex items-start gap-2 ${linkClass}`}
-                    onClick={() => goTo("/sedes")}
-                  >
+                  <Link to="/sedes" className={`flex items-start gap-2 ${linkClass}`}>
                     <MapPin className="w-3.5 h-3.5 text-[#00D4AA] shrink-0 mt-0.5" />
                     {sede}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -117,13 +99,13 @@ export default function Footer() {
             >
               info@kamranp.es
             </a>
-            <button
-              className="flex items-center gap-1.5 text-[#00D4AA] hover:text-[#33DDBB] text-sm font-medium transition-colors cursor-pointer"
-              onClick={() => goTo("/contacto")}
+            <Link
+              to="/contacto"
+              className="flex items-center gap-1.5 text-[#00D4AA] hover:text-[#33DDBB] text-sm font-medium transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
-            </button>
+            </Link>
           </div>
         </div>
       </div>
