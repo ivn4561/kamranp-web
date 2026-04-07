@@ -1,11 +1,5 @@
+import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
-
-const sedes = [
-  "Calle Rodríguez San Pedro, 31 · Madrid",
-  "Calle Parque Vosa, 35 · Madrid",
-  "Plaza de Andrés Soloaga, 1 · Madrid",
-  "Calle de Zaratán, 5 · Madrid",
-];
 
 const servicios = [
   "Envío de dinero",
@@ -15,6 +9,15 @@ const servicios = [
 ];
 
 const plataformas = ["Western Union", "Ria Money Transfer", "MoneyGram", "Europhil"];
+
+const sedes = [
+  "Calle Rodríguez San Pedro, 31 · Madrid",
+  "Calle Parque Vosa, 35 · Madrid",
+  "Plaza de Andrés Soloaga, 1 · Madrid",
+  "Calle de Zaratán, 5 · Madrid",
+];
+
+const linkClass = "text-[#64748B] text-sm hover:text-[#00D4AA] transition-colors";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,7 +29,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <img src="/logo-kamranp.svg" alt="KAMRANP" className="h-7 w-auto" />
+              <Link to="/">
+                <img src="/logo-kamranp.svg" alt="KAMRANP" className="h-7 w-auto" />
+              </Link>
             </div>
             <p className="text-[#64748B] text-sm leading-relaxed mb-5">
               Tu locutorio de confianza en Madrid. Conectamos tu mundo con los mejores servicios de transferencia y comunicación.
@@ -43,8 +48,8 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {servicios.map((s) => (
-                <li key={s} className="text-[#64748B] text-sm hover:text-[#94A3B8] transition-colors">
-                  {s}
+                <li key={s}>
+                  <Link to="/#servicios" className={linkClass}>{s}</Link>
                 </li>
               ))}
             </ul>
@@ -57,8 +62,8 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {plataformas.map((p) => (
-                <li key={p} className="text-[#64748B] text-sm hover:text-[#94A3B8] transition-colors">
-                  {p}
+                <li key={p}>
+                  <Link to="/#plataformas" className={linkClass}>{p}</Link>
                 </li>
               ))}
             </ul>
@@ -71,9 +76,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {sedes.map((sede) => (
-                <li key={sede} className="flex items-start gap-2 text-[#64748B] text-sm">
-                  <MapPin className="w-3.5 h-3.5 text-[#00D4AA] shrink-0 mt-0.5" />
-                  {sede}
+                <li key={sede}>
+                  <Link to="/sedes" className={`flex items-start gap-2 ${linkClass}`}>
+                    <MapPin className="w-3.5 h-3.5 text-[#00D4AA] shrink-0 mt-0.5" />
+                    {sede}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -92,15 +99,13 @@ export default function Footer() {
             >
               info@kamranp.es
             </a>
-            <a
-              href="https://wa.me/34600000000"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contacto"
               className="flex items-center gap-1.5 text-[#00D4AA] hover:text-[#33DDBB] text-sm font-medium transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
-            </a>
+            </Link>
           </div>
         </div>
       </div>
