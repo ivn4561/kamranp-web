@@ -1,9 +1,8 @@
+import { Link } from "react-router-dom";
 import { MessageCircle, Mail, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Contacto() {
-  const whatsappUrl = "https://wa.me/34600000000?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.";
-
   return (
     <section id="contacto" className="section-padding bg-[#061020]">
       <div className="container-max">
@@ -32,14 +31,15 @@ export default function Contacto() {
             <p className="text-[#94A3B8] mb-8 max-w-md mx-auto">
               La forma más rápida de contactarnos. Te atendemos en español, árabe, inglés y más idiomas.
             </p>
-            <Button
-              size="lg"
-              className="text-base px-10 py-4 h-auto shadow-2xl shadow-teal-900/30"
-              onClick={() => window.open(whatsappUrl, "_blank")}
-            >
-              <MessageCircle className="w-5 h-5" />
-              Abrir WhatsApp
-            </Button>
+            <Link to="/contacto">
+              <Button
+                size="lg"
+                className="text-base px-10 py-4 h-auto shadow-2xl shadow-teal-900/30"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Abrir WhatsApp
+              </Button>
+            </Link>
           </div>
 
           {/* Info cards */}
@@ -48,7 +48,7 @@ export default function Contacto() {
               {
                 icon: Clock,
                 title: "Horario",
-                info: "Lun–Sáb: 9:00–21:00\nDom: 10:00–20:00",
+                info: "Lun–Sáb: 10:00–22:00\nDom: 10:00–22:00",
               },
               {
                 icon: Mail,

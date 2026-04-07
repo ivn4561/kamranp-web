@@ -75,6 +75,8 @@ const servicios = [
   },
 ];
 
+const CARD_HEIGHT = 300;
+
 export default function Servicios() {
   return (
     <section id="servicios" className="section-padding bg-[#0A1628]">
@@ -100,15 +102,12 @@ export default function Servicios() {
               <div
                 key={servicio.title}
                 className="group"
-                style={{ perspective: "1000px", height: "280px" }}
+                style={{ perspective: "1000px", height: `${CARD_HEIGHT}px` }}
               >
                 {/* Flip container */}
                 <div
                   className="relative w-full h-full transition-transform duration-500"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transform: "rotateY(0deg)",
-                  }}
+                  style={{ transformStyle: "preserve-3d" }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLDivElement).style.transform =
                       "rotateY(180deg)";
@@ -120,49 +119,49 @@ export default function Servicios() {
                 >
                   {/* Front face */}
                   <div
-                    className="card-dark p-6 absolute inset-0 flex flex-col"
+                    className="card-dark p-6 absolute inset-0 flex flex-col overflow-hidden"
                     style={{ backfaceVisibility: "hidden" }}
                   >
-                    <div className="w-12 h-12 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-5">
+                    <div className="w-12 h-12 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-4 shrink-0">
                       <Icon className="w-6 h-6 text-[#00D4AA]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-3">
+                    <h3 className="text-lg font-bold text-white mb-2 shrink-0">
                       {servicio.title}
                     </h3>
-                    <p className="text-[#94A3B8] text-sm leading-relaxed mb-4 flex-1">
+                    <p className="text-[#94A3B8] text-sm leading-relaxed mb-4 overflow-hidden">
                       {servicio.description}
                     </p>
-                    <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-4">
+                    <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-3 mt-auto shrink-0">
                       {servicio.highlight}
                     </div>
                   </div>
 
                   {/* Back face */}
                   <div
-                    className="card-dark border-[#00D4AA]/40 p-6 absolute inset-0 flex flex-col"
+                    className="card-dark border-[#00D4AA]/40 p-6 absolute inset-0 flex flex-col overflow-hidden"
                     style={{
                       backfaceVisibility: "hidden",
                       transform: "rotateY(180deg)",
                     }}
                   >
-                    <div className="w-12 h-12 bg-[#00D4AA]/20 rounded-xl flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 bg-[#00D4AA]/20 rounded-xl flex items-center justify-center mb-3 shrink-0">
                       <Icon className="w-6 h-6 text-[#00D4AA]" />
                     </div>
-                    <h3 className="text-sm font-bold text-[#00D4AA] uppercase tracking-wider mb-4">
+                    <h3 className="text-xs font-bold text-[#00D4AA] uppercase tracking-wider mb-3 shrink-0">
                       {servicio.back.title}
                     </h3>
-                    <ul className="flex flex-wrap gap-2 flex-1">
+                    <div className="flex flex-wrap gap-1.5 overflow-hidden">
                       {servicio.back.items.map((item) => (
-                        <li
+                        <span
                           key={item}
                           className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2.5 py-1 rounded-full"
                         >
                           {item}
-                        </li>
+                        </span>
                       ))}
-                    </ul>
+                    </div>
                     {"footer" in servicio.back && servicio.back.footer && (
-                      <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-3 mt-3">
+                      <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-3 mt-auto shrink-0">
                         {servicio.back.footer}
                       </p>
                     )}
