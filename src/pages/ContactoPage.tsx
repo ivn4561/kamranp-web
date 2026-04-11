@@ -26,17 +26,17 @@ const sedes = [
     num: "03",
     name: "KAMRANP Parque Vosa",
     address: "Calle Parque Vosa, 35",
-    phone: null,
-    waNumber: null,
-    active: false,
+    phone: "+34 641 21 91 64",
+    waNumber: "34641219164",
+    active: true,
   },
   {
     num: "04",
     name: "KAMRANP Zaratán",
     address: "Calle de Zaratán, 5",
-    phone: null,
-    waNumber: null,
-    active: false,
+    phone: "+34 632 14 83 60",
+    waNumber: "34632148360",
+    active: true,
   },
 ];
 
