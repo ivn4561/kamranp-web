@@ -5,7 +5,7 @@ const plataformas = [
     name: "Western Union",
     abbr: "WU",
     color: "#FFD700",
-    description: "La red de transferencias más grande del mundo. Presente en más de 200 países.",
+    description: "Presente en más de 200 países",
     bgColor: "#0F2040",
     borderColor: "#FFD70030",
   },
@@ -13,7 +13,7 @@ const plataformas = [
     name: "Ria Money Transfer",
     abbr: "RIA",
     color: "#F97316",
-    description: "Envíos rápidos a más de 160 países con comisiones competitivas.",
+    description: "Envíos a más de 160 países",
     bgColor: "#0F2040",
     borderColor: "#F9731630",
   },
@@ -21,7 +21,7 @@ const plataformas = [
     name: "MoneyGram",
     abbr: "MG",
     color: "#4A90D9",
-    description: "Transferencias internacionales seguras con amplia cobertura global.",
+    description: "Cobertura global segura",
     bgColor: "#0F2040",
     borderColor: "#4A90D930",
   },
@@ -29,7 +29,7 @@ const plataformas = [
     name: "Europhil",
     abbr: "EP",
     color: "#7FBA00",
-    description: "Especialistas en envíos a Filipinas y el sudeste asiático. Tasas muy competitivas en transferencias bancarias.",
+    description: "Especialistas en Filipinas y Asia",
     bgColor: "#0F2040",
     borderColor: "#7FBA0030",
   },
@@ -37,7 +37,7 @@ const plataformas = [
     name: "I-Transfer",
     abbr: "IT",
     color: "#00D4AA",
-    description: "Plataforma de transferencias internacionales con tarifas competitivas y servicio ágil.",
+    description: "Tarifas competitivas",
     bgColor: "#0F2040",
     borderColor: "#00D4AA30",
   },
@@ -61,7 +61,7 @@ const features = [
   },
 ];
 
-const CARD_HEIGHT = 260;
+const CARD_HEIGHT = 220;
 
 export default function Plataformas() {
   return (
@@ -82,7 +82,7 @@ export default function Plataformas() {
         </div>
 
         {/* Platform flip cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
           {plataformas.map((p) => (
             <div
               key={p.name}
@@ -111,15 +111,15 @@ export default function Plataformas() {
                   }}
                 >
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center font-black text-lg mb-4 shrink-0"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-sm mb-3 shrink-0"
                     style={{ backgroundColor: p.color + "20", color: p.color }}
                   >
                     {p.abbr}
                   </div>
-                  <h3 className="font-bold text-base mb-2 shrink-0" style={{ color: p.color }}>
+                  <h3 className="font-bold text-sm mb-1.5 shrink-0 leading-tight" style={{ color: p.color }}>
                     {p.name}
                   </h3>
-                  <p className="text-[#94A3B8] text-sm leading-relaxed overflow-hidden">
+                  <p className="text-[#94A3B8] text-xs leading-snug overflow-hidden">
                     {p.description}
                   </p>
                 </div>
