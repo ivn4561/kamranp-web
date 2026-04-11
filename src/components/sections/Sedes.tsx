@@ -1,4 +1,4 @@
-import { MapPin, Clock, Phone, Mail, Navigation } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, Navigation, MessageCircle } from "lucide-react";
 import { locations, mainPhone } from "@/data/locations";
 
 export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) {
@@ -49,14 +49,16 @@ export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) 
                 <>
                   {/* Details */}
                   <div className="flex flex-col gap-2.5 text-sm border-t border-[#1a3050] pt-4">
-                    <div className="flex items-start gap-2.5 text-[#94A3B8]">
-                      <Clock className="w-4 h-4 text-[#00D4AA] shrink-0 mt-0.5" />
-                      <span className="text-xs leading-relaxed">
-                        Lun–Sáb: {sede.hours.weekday}
-                        <br />
-                        Dom: {sede.hours.sunday}
-                      </span>
-                    </div>
+                    {sede.hours.weekday && (
+                      <div className="flex items-start gap-2.5 text-[#94A3B8]">
+                        <Clock className="w-4 h-4 text-[#00D4AA] shrink-0 mt-0.5" />
+                        <span className="text-xs leading-relaxed">
+                          Lun–Sáb: {sede.hours.weekday}
+                          <br />
+                          Dom: {sede.hours.sunday}
+                        </span>
+                      </div>
+                    )}
                     <div className="flex items-center gap-2.5 text-[#94A3B8]">
                       <Phone className="w-4 h-4 text-[#00D4AA] shrink-0" />
                       <span className="text-xs">{sede.phone}</span>
@@ -74,16 +76,29 @@ export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) 
                     )}
                   </div>
 
-                  {/* CTA */}
-                  <a
-                    href={sede.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-[#00D4AA] hover:bg-[#00B891] text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200 mt-1"
-                  >
-                    <Navigation className="w-4 h-4" />
-                    Cómo llegar
-                  </a>
+                  {/* CTAs */}
+                  <div className="flex flex-col gap-2 mt-1">
+                    <a
+                      href={sede.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-[#00D4AA] hover:bg-[#00B891] text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200"
+                    >
+                      <Navigation className="w-4 h-4" />
+                      Cómo llegar
+                    </a>
+                    {sede.whatsapp && (
+                      <a
+                        href={`https://wa.me/${sede.whatsapp}?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full border border-[#00D4AA] text-[#00D4AA] hover:bg-[#00D4AA] hover:text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        WhatsApp
+                      </a>
+                    )}
+                  </div>
                 </>
               ) : (
                 <>
