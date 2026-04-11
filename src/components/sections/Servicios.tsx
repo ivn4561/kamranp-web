@@ -4,8 +4,7 @@ const servicios = [
   {
     icon: Banknote,
     title: "Envío de dinero",
-    description:
-      "Transfiere dinero a cualquier parte del mundo de forma rápida, segura y con las mejores tasas del mercado. Trabajamos con las principales plataformas internacionales.",
+    description: "Rápido, seguro y con las mejores tasas. Western Union, Ria, MoneyGram, Europhil.",
     highlight: "Western Union · Ria · MoneyGram · Europhil",
     back: {
       title: "Plataformas disponibles",
@@ -21,8 +20,7 @@ const servicios = [
   {
     icon: Smartphone,
     title: "Recargas de móvil",
-    description:
-      "Recarga el móvil de tus familiares en cualquier país del mundo al instante. Cobertura en más de 150 operadoras internacionales.",
+    description: "Todos los operadores españoles e internacionales al instante.",
     highlight: "Recarga internacional al instante",
     back: {
       title: "Operadores disponibles",
@@ -42,8 +40,7 @@ const servicios = [
   {
     icon: Printer,
     title: "Impresiones y fotocopias",
-    description:
-      "Servicio completo de impresión en color y blanco y negro, fotocopias y escaneo de documentos. Rápido y económico.",
+    description: "Color, B/N, fotocopias y escáner. Rápido y económico.",
     highlight: "Color · B/N · Escaneo",
     back: {
       title: "Nuestros servicios de impresión",
@@ -58,8 +55,7 @@ const servicios = [
   {
     icon: Headphones,
     title: "Accesorios tecnológicos y móviles",
-    description:
-      "Venta de móviles, auriculares, cargadores, fundas, cables y otros accesorios tecnológicos a precios competitivos.",
+    description: "Móviles, fundas, cargadores, auriculares y cables.",
     highlight: "Móviles · Fundas · Cargadores · Auriculares · Cables",
     back: {
       title: "Lo que encontrarás",
@@ -74,8 +70,6 @@ const servicios = [
     },
   },
 ];
-
-const CARD_HEIGHT = 300;
 
 export default function Servicios() {
   return (
@@ -94,15 +88,16 @@ export default function Servicios() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Grid — 2 cols mobile, 4 cols desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {servicios.map((servicio) => {
             const Icon = servicio.icon;
             return (
+              /* Outer: responsive fixed height, perspective for 3D */
               <div
                 key={servicio.title}
-                className="group"
-                style={{ perspective: "1000px", height: `${CARD_HEIGHT}px` }}
+                className="h-64 md:h-72"
+                style={{ perspective: "1000px" }}
               >
                 {/* Flip container */}
                 <div
@@ -119,33 +114,33 @@ export default function Servicios() {
                 >
                   {/* Front face */}
                   <div
-                    className="card-dark p-6 absolute inset-0 flex flex-col overflow-hidden"
+                    className="card-dark p-4 sm:p-5 absolute inset-0 flex flex-col overflow-hidden"
                     style={{ backfaceVisibility: "hidden" }}
                   >
-                    <div className="w-12 h-12 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-4 shrink-0">
-                      <Icon className="w-6 h-6 text-[#00D4AA]" />
+                    <div className="w-10 h-10 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-3 shrink-0">
+                      <Icon className="w-5 h-5 text-[#00D4AA]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2 shrink-0">
+                    <h3 className="text-sm sm:text-base font-bold text-white mb-2 shrink-0 leading-tight">
                       {servicio.title}
                     </h3>
-                    <p className="text-[#94A3B8] text-sm leading-relaxed mb-4 overflow-hidden">
+                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-snug mb-3 overflow-hidden">
                       {servicio.description}
                     </p>
-                    <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-3 mt-auto shrink-0">
+                    <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-3 mt-auto shrink-0 leading-snug">
                       {servicio.highlight}
                     </div>
                   </div>
 
                   {/* Back face */}
                   <div
-                    className="card-dark border-[#00D4AA]/40 p-6 absolute inset-0 flex flex-col overflow-hidden"
+                    className="card-dark border-[#00D4AA]/40 p-4 sm:p-5 absolute inset-0 flex flex-col overflow-hidden"
                     style={{
                       backfaceVisibility: "hidden",
                       transform: "rotateY(180deg)",
                     }}
                   >
-                    <div className="w-12 h-12 bg-[#00D4AA]/20 rounded-xl flex items-center justify-center mb-3 shrink-0">
-                      <Icon className="w-6 h-6 text-[#00D4AA]" />
+                    <div className="w-10 h-10 bg-[#00D4AA]/20 rounded-xl flex items-center justify-center mb-3 shrink-0">
+                      <Icon className="w-5 h-5 text-[#00D4AA]" />
                     </div>
                     <h3 className="text-xs font-bold text-[#00D4AA] uppercase tracking-wider mb-3 shrink-0">
                       {servicio.back.title}
@@ -154,14 +149,14 @@ export default function Servicios() {
                       {servicio.back.items.map((item) => (
                         <span
                           key={item}
-                          className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2.5 py-1 rounded-full"
+                          className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2 py-0.5 rounded-full"
                         >
                           {item}
                         </span>
                       ))}
                     </div>
                     {"footer" in servicio.back && servicio.back.footer && (
-                      <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-3 mt-auto shrink-0">
+                      <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-2 mt-auto shrink-0">
                         {servicio.back.footer}
                       </p>
                     )}
