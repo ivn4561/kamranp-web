@@ -61,8 +61,6 @@ const features = [
   },
 ];
 
-const CARD_HEIGHT = 220;
-
 export default function Plataformas() {
   return (
     <section id="plataformas" className="section-padding bg-[#061020]">
@@ -86,7 +84,8 @@ export default function Plataformas() {
           {plataformas.map((p) => (
             <div
               key={p.name}
-              style={{ perspective: "1000px", height: `${CARD_HEIGHT}px` }}
+              className="h-64 md:h-72"
+              style={{ perspective: "1000px" }}
             >
               {/* Flip container */}
               <div
