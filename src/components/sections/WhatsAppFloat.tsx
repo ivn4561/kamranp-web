@@ -1,8 +1,8 @@
 import { MessageCircle } from "lucide-react";
+import { mainWhatsapp } from "@/data/locations";
 
 export default function WhatsAppFloat() {
-  const whatsappUrl =
-    "https://wa.me/34600000000?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.";
+  const whatsappUrl = `https://wa.me/${mainWhatsapp}?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.`;
 
   return (
     <a
