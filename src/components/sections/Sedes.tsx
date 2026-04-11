@@ -87,7 +87,7 @@ export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) 
                 </>
               ) : (
                 <>
-                  {/* Próximamente banner */}
+                  {/* Próximamente banner for contact info */}
                   <div className="border-t border-[#1a3050] pt-4 flex flex-col gap-3">
                     <div className="bg-[#00D4AA]/5 border border-[#00D4AA]/20 rounded-lg px-4 py-3 text-center">
                       <p className="text-[#00D4AA] text-xs font-semibold uppercase tracking-wider mb-0.5">
@@ -97,6 +97,15 @@ export default function Sedes({ hideHeader = false }: { hideHeader?: boolean }) 
                         Próximamente más información
                       </p>
                     </div>
+                    <a
+                      href={sede.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-[#00D4AA] hover:bg-[#00B891] text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200"
+                    >
+                      <Navigation className="w-4 h-4" />
+                      Cómo llegar
+                    </a>
                     <a
                       href={`tel:${mainPhone}`}
                       className="flex items-center justify-center gap-2 w-full border border-[#00D4AA] text-[#00D4AA] hover:bg-[#00D4AA] hover:text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200"

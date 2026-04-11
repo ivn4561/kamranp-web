@@ -6,6 +6,7 @@ const plataformas = [
     abbr: "WU",
     color: "#FFD700",
     description: "Presente en más de 200 países",
+    detail: "Recogida en minutos o depósito en cuenta bancaria.",
     bgColor: "#0F2040",
     borderColor: "#FFD70030",
   },
@@ -14,6 +15,7 @@ const plataformas = [
     abbr: "RIA",
     color: "#F97316",
     description: "Envíos a más de 160 países",
+    detail: "Tarifas competitivas y entrega express disponible.",
     bgColor: "#0F2040",
     borderColor: "#F9731630",
   },
@@ -22,6 +24,7 @@ const plataformas = [
     abbr: "MG",
     color: "#4A90D9",
     description: "Cobertura global segura",
+    detail: "Envía a cuenta bancaria, wallet móvil o recogida en efectivo.",
     bgColor: "#0F2040",
     borderColor: "#4A90D930",
   },
@@ -30,6 +33,7 @@ const plataformas = [
     abbr: "EP",
     color: "#7FBA00",
     description: "Especialistas en Filipinas y Asia",
+    detail: "Servicio rápido con atención personalizada.",
     bgColor: "#0F2040",
     borderColor: "#7FBA0030",
   },
@@ -38,6 +42,7 @@ const plataformas = [
     abbr: "IT",
     color: "#00D4AA",
     description: "Tarifas competitivas",
+    detail: "Transferencias directas a cuenta bancaria en destino.",
     bgColor: "#0F2040",
     borderColor: "#00D4AA30",
   },
@@ -118,8 +123,11 @@ export default function Plataformas() {
                   <h3 className="font-bold text-sm mb-1.5 shrink-0 leading-tight" style={{ color: p.color }}>
                     {p.name}
                   </h3>
-                  <p className="text-[#94A3B8] text-xs leading-snug overflow-hidden">
+                  <p className="text-[#94A3B8] text-xs leading-snug">
                     {p.description}
+                  </p>
+                  <p className="text-[#64748B] text-xs leading-snug mt-1.5">
+                    {p.detail}
                   </p>
                 </div>
 
