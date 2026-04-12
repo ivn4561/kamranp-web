@@ -29,7 +29,7 @@ export default function Contacto() {
               Escríbenos por WhatsApp
             </h3>
             <p className="text-[#94A3B8] mb-8 max-w-md mx-auto">
-              La forma más rápida de contactarnos. Te atendemos en español, árabe, inglés y más idiomas.
+              La forma más rápida de contactarnos. Te atendemos en español e inglés.
             </p>
             <Link to="/contacto">
               <Button

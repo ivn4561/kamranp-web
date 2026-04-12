@@ -81,7 +81,7 @@ export default function ContactoPage() {
             Contáctanos
           </h1>
           <p className="text-[#94A3B8] text-lg max-w-2xl">
-            Escríbenos directamente a la sede más cercana. Te atendemos en español, árabe, inglés y más idiomas.
+            Escríbenos directamente a la sede más cercana. Te atendemos en español e inglés.
           </p>
         </div>
       </section>
