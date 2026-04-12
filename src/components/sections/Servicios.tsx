@@ -1,4 +1,4 @@
-import { Banknote, Smartphone, Printer, Headphones } from "lucide-react";
+import { Banknote, Smartphone, Printer, Headphones, Package, Monitor } from "lucide-react";
 
 const servicios = [
   {
@@ -51,6 +51,38 @@ const servicios = [
       items: ["Power Banks", "Auriculares", "Fundas", "Teléfonos móviles", "Cargadores", "Cables"],
       subtitle: undefined as string | undefined,
       regiones: undefined as string[] | undefined,
+      prose: undefined as string | undefined,
+      disclaimer: undefined as string | undefined,
+    },
+  },
+  {
+    icon: Package,
+    title: "Paquetería",
+    description: "Recogida y envío de paquetes nacionales e internacionales.",
+    highlight: "Envío · Recogida",
+    frontBadges: undefined as string[] | undefined,
+    back: {
+      title: "Paquetería",
+      items: undefined as string[] | undefined,
+      subtitle: undefined as string | undefined,
+      regiones: undefined as string[] | undefined,
+      prose: "Envía y recibe paquetes de forma rápida y segura desde cualquiera de nuestras sedes.",
+      disclaimer: "* Disponible en sedes seleccionadas",
+    },
+  },
+  {
+    icon: Monitor,
+    title: "Internet y ordenadores",
+    description: "Acceso a ordenador con internet por tiempo de uso.",
+    highlight: "WiFi · PC · Navegación",
+    frontBadges: undefined as string[] | undefined,
+    back: {
+      title: "Internet y ordenadores",
+      items: undefined as string[] | undefined,
+      subtitle: undefined as string | undefined,
+      regiones: undefined as string[] | undefined,
+      prose: "Navega, trabaja o imprime desde nuestros ordenadores con conexión de alta velocidad.",
+      disclaimer: "* Disponible en sedes seleccionadas",
     },
   },
 ];
@@ -72,8 +104,8 @@ export default function Servicios() {
           </p>
         </div>
 
-        {/* Grid — 2 cols mobile, 4 cols desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* Grid — 2 cols mobile, 3 cols desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {servicios.map((servicio) => {
             const Icon = servicio.icon;
             return (
@@ -137,7 +169,19 @@ export default function Servicios() {
                       </p>
                     )}
 
-                    {servicio.back.regiones ? (
+                    {servicio.back.prose ? (
+                      /* Prose cards: text description + disclaimer */
+                      <>
+                        <p className="text-[#94A3B8] text-xs leading-relaxed mt-1">
+                          {servicio.back.prose}
+                        </p>
+                        {servicio.back.disclaimer && (
+                          <p className="text-[10px] text-gray-500 mt-3 italic">
+                            {servicio.back.disclaimer}
+                          </p>
+                        )}
+                      </>
+                    ) : servicio.back.regiones ? (
                       /* Recargas back: regions + international operators */
                       <>
                         <div className="flex flex-wrap gap-1.5 mb-2">
@@ -151,7 +195,7 @@ export default function Servicios() {
                           ))}
                         </div>
                         <div className="flex flex-wrap gap-1.5 overflow-hidden">
-                          {servicio.back.items.map((o) => (
+                          {servicio.back.items!.map((o) => (
                             <span
                               key={o}
                               className="text-[10px] font-medium text-[#94A3B8] bg-[#1a3050] px-2 py-0.5 rounded-full"
@@ -164,7 +208,7 @@ export default function Servicios() {
                     ) : (
                       /* Other cards back: standard item badges */
                       <div className="flex flex-wrap gap-1.5 overflow-hidden">
-                        {servicio.back.items.map((item) => (
+                        {servicio.back.items!.map((item) => (
                           <span
                             key={item}
                             className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2 py-0.5 rounded-full"
