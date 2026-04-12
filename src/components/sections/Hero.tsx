@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MessageCircle, ArrowRight, Globe } from "lucide-react";
+import { MessageCircle, ArrowRight, Globe, Shield, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -42,10 +42,30 @@ export default function Hero() {
         </p>
 
         {/* Subtext */}
-        <p className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto mb-0 leading-relaxed">
           Envío de dinero internacional, recargas de móvil, impresiones y venta
           de accesorios tecnológicos. Todo lo que necesitas, cerca de ti.
         </p>
+
+        {/* Trust badges */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8 mt-6">
+          <span className="flex items-center gap-2 bg-[#132035] border border-[#1a3050] rounded-full px-4 py-2 text-sm text-gray-300">
+            <Shield className="w-3.5 h-3.5 text-[#00D4AA]" />
+            Envíos 100% seguros
+          </span>
+          <span className="flex items-center gap-2 bg-[#132035] border border-[#1a3050] rounded-full px-4 py-2 text-sm text-gray-300">
+            <Clock className="w-3.5 h-3.5 text-[#00D4AA]" />
+            +10 años en Madrid
+          </span>
+          <span className="flex items-center gap-2 bg-[#132035] border border-[#1a3050] rounded-full px-4 py-2 text-sm text-gray-300">
+            <MapPin className="w-3.5 h-3.5 text-[#00D4AA]" />
+            4 sedes cerca de ti
+          </span>
+          <span className="flex items-center gap-2 bg-[#132035] border border-[#1a3050] rounded-full px-4 py-2 text-sm text-gray-300">
+            <Globe className="w-3.5 h-3.5 text-[#00D4AA]" />
+            Atención multiidioma
+          </span>
+        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

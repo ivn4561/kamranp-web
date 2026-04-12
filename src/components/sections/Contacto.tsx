@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MessageCircle, Mail, Clock, MapPin } from "lucide-react";
+import { MessageCircle, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Contacto() {
@@ -43,44 +43,33 @@ export default function Contacto() {
           </div>
 
           {/* Info cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              {
-                icon: Clock,
-                title: "Horario",
-                info: "Lun–Sáb: 10:00–22:00\nDom: 10:00–22:00",
-              },
-              {
-                icon: Mail,
-                title: "Email",
-                info: "info@kamranp.es",
-              },
-              {
-                icon: MapPin,
-                title: "Ubicaciones",
-                info: "4 sedes en Madrid",
-              },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="card-dark p-5 flex items-start gap-4"
-                >
-                  <div className="w-10 h-10 bg-[#00D4AA]/10 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-[#00D4AA]" />
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold text-sm">
-                      {item.title}
-                    </div>
-                    <div className="text-[#94A3B8] text-sm mt-0.5 whitespace-pre-line">
-                      {item.info}
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Horario */}
+            <div className="card-dark p-5 flex items-start gap-4">
+              <div className="w-10 h-10 bg-[#00D4AA]/10 rounded-lg flex items-center justify-center shrink-0">
+                <Clock className="w-5 h-5 text-[#00D4AA]" />
+              </div>
+              <div>
+                <div className="text-white font-semibold text-sm">Horario</div>
+                <div className="text-[#94A3B8] text-sm mt-0.5 whitespace-pre-line">
+                  {"Lun–Sáb: 10:00–22:00\nDom: 10:00–22:00"}
                 </div>
-              );
-            })}
+              </div>
+            </div>
+
+            {/* Ubicaciones — clickeable */}
+            <a
+              href="/sedes"
+              className="card-dark p-5 flex items-start gap-4 hover:border-[#00D4AA] transition-all cursor-pointer"
+            >
+              <div className="w-10 h-10 bg-[#00D4AA]/10 rounded-lg flex items-center justify-center shrink-0">
+                <MapPin className="w-5 h-5 text-[#00D4AA]" />
+              </div>
+              <div>
+                <div className="text-white font-semibold text-sm">Ubicaciones</div>
+                <div className="text-[#94A3B8] text-sm mt-0.5">4 sedes en Madrid</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
