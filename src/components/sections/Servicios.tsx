@@ -35,6 +35,10 @@ const servicios = [
         "Digi",
       ],
       footer: "Recargas nacionales e internacionales",
+      internacionales: {
+        regiones: ["Latinoamérica", "África", "Asia", "Europa"],
+        operadores: ["Cubacel", "Claro", "Tigo", "Orange", "Maroc Telecom", "MTN", "Africell", "Entel"],
+      },
     },
   },
   {
@@ -155,7 +159,37 @@ export default function Servicios() {
                         </span>
                       ))}
                     </div>
-                    {"footer" in servicio.back && servicio.back.footer && (
+                    {"internacionales" in servicio.back && servicio.back.internacionales && (
+                      <div className="mt-4 pt-4 border-t border-[#1a3050] shrink-0">
+                        <p className="text-xs font-semibold text-[#00D4AA] uppercase tracking-wider mb-3">
+                          Recargas internacionales
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mb-2">
+                          {servicio.back.internacionales.regiones.map((r) => (
+                            <span
+                              key={r}
+                              className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2 py-0.5 rounded-full"
+                            >
+                              {r}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {servicio.back.internacionales.operadores.map((o) => (
+                            <span
+                              key={o}
+                              className="text-[10px] font-medium text-[#94A3B8] bg-[#1a3050] px-2 py-0.5 rounded-full"
+                            >
+                              {o}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-xs text-gray-500 mt-3">
+                          Vía Disashop · +160 países
+                        </p>
+                      </div>
+                    )}
+                    {"footer" in servicio.back && servicio.back.footer && !("internacionales" in servicio.back) && (
                       <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-2 mt-auto shrink-0">
                         {servicio.back.footer}
                       </p>

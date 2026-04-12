@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, MessageCircle, Phone, MapPin } from "lucide-react";
+import { ArrowLeft, MessageCircle, Phone, MapPin, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
@@ -12,6 +12,7 @@ const sedes = [
     address: "Plaza de Andrés Soloaga, 1",
     phone: "+34 672 818 465",
     waNumber: "34672818465",
+    googleMapsUrl: "https://maps.google.com/?q=Plaza+de+Andrés+Soloaga+1+Madrid",
     active: true,
   },
   {
@@ -20,6 +21,7 @@ const sedes = [
     address: "Calle Rodríguez San Pedro, 31",
     phone: "+34 675 030 620",
     waNumber: "34675030620",
+    googleMapsUrl: "https://maps.google.com/?q=Calle+Rodríguez+San+Pedro+31+Madrid",
     active: true,
   },
   {
@@ -28,6 +30,7 @@ const sedes = [
     address: "Calle Parque Vosa, 35",
     phone: "+34 641 21 91 64",
     waNumber: "34641219164",
+    googleMapsUrl: "https://maps.google.com/?q=Calle+Parque+Vosa+35+Móstoles+Madrid",
     active: true,
   },
   {
@@ -36,6 +39,7 @@ const sedes = [
     address: "Calle de Zaratán, 5",
     phone: "+34 632 14 83 60",
     waNumber: "34632148360",
+    googleMapsUrl: "https://maps.google.com/?q=Calle+de+Zaratán+5+Madrid",
     active: true,
   },
 ];
@@ -121,8 +125,8 @@ export default function ContactoPage() {
                 </div>
               )}
 
-              {/* WhatsApp button */}
-              <div className="mt-auto">
+              {/* Buttons */}
+              <div className="mt-auto flex flex-col gap-2">
                 {sede.active && sede.waNumber ? (
                   <Button
                     className="w-full gap-2"
@@ -138,6 +142,15 @@ export default function ContactoPage() {
                     Próximamente
                   </Button>
                 )}
+                <a
+                  href={sede.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full border border-[#00D4AA] text-[#00D4AA] hover:bg-[#00D4AA] hover:text-[#0A1628] text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200"
+                >
+                  <Navigation className="w-4 h-4" />
+                  Cómo llegar
+                </a>
               </div>
             </div>
           ))}
