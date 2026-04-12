@@ -6,39 +6,25 @@ const servicios = [
     title: "Envío de dinero",
     description: "Rápido, seguro y con las mejores tasas. Western Union, Ria, MoneyGram, Europhil.",
     highlight: "Western Union · Ria · MoneyGram · Europhil",
+    frontBadges: undefined as string[] | undefined,
     back: {
       title: "Plataformas disponibles",
-      items: [
-        "Western Union",
-        "Ria Money Transfer",
-        "MoneyGram",
-        "Europhil",
-        "I-Transfer",
-      ],
+      items: ["Western Union", "Ria Money Transfer", "MoneyGram", "Europhil", "I-Transfer"],
+      subtitle: undefined as string | undefined,
+      regiones: undefined as string[] | undefined,
     },
   },
   {
     icon: Smartphone,
     title: "Recargas de móvil",
     description: "Todos los operadores españoles e internacionales al instante.",
-    highlight: "Recarga internacional al instante",
+    highlight: "Recarga nacional al instante",
+    frontBadges: ["Movistar", "Vodafone", "Orange", "MásMóvil", "Yoigo", "Lebara", "Lycamobile", "Digi"],
     back: {
-      title: "Operadores disponibles",
-      items: [
-        "Movistar",
-        "Vodafone",
-        "Orange",
-        "MásMóvil",
-        "Yoigo",
-        "Lebara",
-        "Lycamobile",
-        "Digi",
-      ],
-      footer: "Recargas nacionales e internacionales",
-      internacionales: {
-        regiones: ["Latinoamérica", "África", "Asia", "Europa"],
-        operadores: ["Cubacel", "Claro", "Tigo", "Orange", "Maroc Telecom", "MTN", "Africell", "Entel"],
-      },
+      title: "Recargas internacionales",
+      subtitle: "Vía Disashop · +160 países",
+      regiones: ["Latinoamérica", "África", "Asia", "Europa"],
+      items: ["Cubacel", "Claro", "Tigo", "Orange", "Maroc Telecom", "MTN", "Africell", "Entel"],
     },
   },
   {
@@ -46,14 +32,12 @@ const servicios = [
     title: "Impresiones y fotocopias",
     description: "Color, B/N, fotocopias y escáner. Rápido y económico.",
     highlight: "Color · B/N · Escaneo",
+    frontBadges: undefined as string[] | undefined,
     back: {
       title: "Nuestros servicios de impresión",
-      items: [
-        "Impresión color",
-        "Impresión B/N",
-        "Fotocopia B/N",
-        "Escáner de documentos",
-      ],
+      items: ["Impresión color", "Impresión B/N", "Fotocopia B/N", "Escáner de documentos"],
+      subtitle: undefined as string | undefined,
+      regiones: undefined as string[] | undefined,
     },
   },
   {
@@ -61,16 +45,12 @@ const servicios = [
     title: "Accesorios tecnológicos y móviles",
     description: "Móviles, fundas, cargadores, auriculares y cables.",
     highlight: "Móviles · Fundas · Cargadores · Auriculares · Cables",
+    frontBadges: undefined as string[] | undefined,
     back: {
       title: "Lo que encontrarás",
-      items: [
-        "Power Banks",
-        "Auriculares",
-        "Fundas",
-        "Teléfonos móviles",
-        "Cargadores",
-        "Cables",
-      ],
+      items: ["Power Banks", "Auriculares", "Fundas", "Teléfonos móviles", "Cargadores", "Cables"],
+      subtitle: undefined as string | undefined,
+      regiones: undefined as string[] | undefined,
     },
   },
 ];
@@ -97,75 +77,71 @@ export default function Servicios() {
           {servicios.map((servicio) => {
             const Icon = servicio.icon;
             return (
-              /* Outer: responsive fixed height, perspective for 3D */
+              /* CSS-only flip wrapper using Tailwind group + arbitrary values */
               <div
                 key={servicio.title}
-                className="h-64 md:h-72"
-                style={{ perspective: "1000px" }}
+                className="group h-64 md:h-72 [perspective:1000px]"
               >
-                {/* Flip container */}
-                <div
-                  className="relative w-full h-full transition-transform duration-500"
-                  style={{ transformStyle: "preserve-3d" }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.transform =
-                      "rotateY(180deg)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.transform =
-                      "rotateY(0deg)";
-                  }}
-                >
-                  {/* Front face */}
-                  <div
-                    className="card-dark p-4 sm:p-5 absolute inset-0 flex flex-col overflow-hidden"
-                    style={{ backfaceVisibility: "hidden" }}
-                  >
+                {/* Flip inner */}
+                <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
+                  {/* ── FRONT FACE ── */}
+                  <div className="card-dark p-4 sm:p-5 absolute inset-0 flex flex-col overflow-hidden [backface-visibility:hidden]">
                     <div className="w-10 h-10 bg-[#00D4AA]/10 rounded-xl flex items-center justify-center mb-3 shrink-0">
                       <Icon className="w-5 h-5 text-[#00D4AA]" />
                     </div>
                     <h3 className="text-sm sm:text-base font-bold text-white mb-2 shrink-0 leading-tight">
                       {servicio.title}
                     </h3>
-                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-snug mb-3 overflow-hidden">
+                    <p className="text-[#94A3B8] text-xs leading-snug mb-3 overflow-hidden">
                       {servicio.description}
                     </p>
-                    <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-3 mt-auto shrink-0 leading-snug">
-                      {servicio.highlight}
-                    </div>
+
+                    {servicio.frontBadges ? (
+                      /* Recargas: show national operator badges */
+                      <div className="border-t border-[#1a3050] pt-3 mt-auto">
+                        <div className="flex flex-wrap gap-1 overflow-hidden">
+                          {servicio.frontBadges.map((badge) => (
+                            <span
+                              key={badge}
+                              className="text-[10px] font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-1.5 py-0.5 rounded-full"
+                            >
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-xs text-[#00D4AA] font-medium mt-2">
+                          {servicio.highlight}
+                        </p>
+                      </div>
+                    ) : (
+                      /* Other cards: show highlight text */
+                      <div className="text-xs text-[#00D4AA] font-medium border-t border-[#1a3050] pt-3 mt-auto shrink-0 leading-snug">
+                        {servicio.highlight}
+                      </div>
+                    )}
                   </div>
 
-                  {/* Back face */}
-                  <div
-                    className="card-dark border-[#00D4AA]/40 p-4 sm:p-5 absolute inset-0 flex flex-col overflow-hidden"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
-                  >
+                  {/* ── BACK FACE ── */}
+                  <div className="card-dark border-[#00D4AA]/40 p-4 sm:p-5 absolute inset-0 flex flex-col overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]">
                     <div className="w-10 h-10 bg-[#00D4AA]/20 rounded-xl flex items-center justify-center mb-3 shrink-0">
                       <Icon className="w-5 h-5 text-[#00D4AA]" />
                     </div>
-                    <h3 className="text-xs font-bold text-[#00D4AA] uppercase tracking-wider mb-3 shrink-0">
+                    <h3 className="text-xs font-bold text-[#00D4AA] uppercase tracking-wider mb-2 shrink-0">
                       {servicio.back.title}
                     </h3>
-                    <div className="flex flex-wrap gap-1.5 overflow-hidden">
-                      {servicio.back.items.map((item) => (
-                        <span
-                          key={item}
-                          className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2 py-0.5 rounded-full"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                    {"internacionales" in servicio.back && servicio.back.internacionales && (
-                      <div className="mt-4 pt-4 border-t border-[#1a3050] shrink-0">
-                        <p className="text-xs font-semibold text-[#00D4AA] uppercase tracking-wider mb-3">
-                          Recargas internacionales
-                        </p>
+
+                    {servicio.back.subtitle && (
+                      <p className="text-xs text-[#64748B] mb-3 shrink-0">
+                        {servicio.back.subtitle}
+                      </p>
+                    )}
+
+                    {servicio.back.regiones ? (
+                      /* Recargas back: regions + international operators */
+                      <>
                         <div className="flex flex-wrap gap-1.5 mb-2">
-                          {servicio.back.internacionales.regiones.map((r) => (
+                          {servicio.back.regiones.map((r) => (
                             <span
                               key={r}
                               className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2 py-0.5 rounded-full"
@@ -174,8 +150,8 @@ export default function Servicios() {
                             </span>
                           ))}
                         </div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {servicio.back.internacionales.operadores.map((o) => (
+                        <div className="flex flex-wrap gap-1.5 overflow-hidden">
+                          {servicio.back.items.map((o) => (
                             <span
                               key={o}
                               className="text-[10px] font-medium text-[#94A3B8] bg-[#1a3050] px-2 py-0.5 rounded-full"
@@ -184,17 +160,22 @@ export default function Servicios() {
                             </span>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500 mt-3">
-                          Vía Disashop · +160 países
-                        </p>
+                      </>
+                    ) : (
+                      /* Other cards back: standard item badges */
+                      <div className="flex flex-wrap gap-1.5 overflow-hidden">
+                        {servicio.back.items.map((item) => (
+                          <span
+                            key={item}
+                            className="text-xs font-medium text-white bg-[#00D4AA]/10 border border-[#00D4AA]/20 px-2 py-0.5 rounded-full"
+                          >
+                            {item}
+                          </span>
+                        ))}
                       </div>
                     )}
-                    {"footer" in servicio.back && servicio.back.footer && !("internacionales" in servicio.back) && (
-                      <p className="text-xs text-[#64748B] border-t border-[#1a3050] pt-2 mt-auto shrink-0">
-                        {servicio.back.footer}
-                      </p>
-                    )}
                   </div>
+
                 </div>
               </div>
             );
