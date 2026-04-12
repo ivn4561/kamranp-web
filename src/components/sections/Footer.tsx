@@ -19,6 +19,14 @@ const sedes = [
 
 const linkClass = "text-[#64748B] text-sm hover:text-[#00D4AA] transition-colors";
 
+function scrollToSection(id: string) {
+  if (window.location.pathname !== "/") {
+    window.location.href = `/#${id}`;
+  } else {
+    document.querySelector(`#${id}`)?.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -49,7 +57,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {servicios.map((s) => (
                 <li key={s}>
-                  <Link to="/#servicios" className={linkClass}>{s}</Link>
+                  <button
+                    onClick={() => scrollToSection("servicios")}
+                    className={`text-left ${linkClass}`}
+                  >
+                    {s}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -63,7 +76,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {plataformas.map((p) => (
                 <li key={p}>
-                  <Link to="/#plataformas" className={linkClass}>{p}</Link>
+                  <button
+                    onClick={() => scrollToSection("plataformas")}
+                    className={`text-left ${linkClass}`}
+                  >
+                    {p}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -77,10 +95,10 @@ export default function Footer() {
             <ul className="space-y-3">
               {sedes.map((sede) => (
                 <li key={sede}>
-                  <Link to="/sedes" className={`flex items-start gap-2 ${linkClass}`}>
+                  <a href="/sedes" className={`flex items-start gap-2 ${linkClass}`}>
                     <MapPin className="w-3.5 h-3.5 text-[#00D4AA] shrink-0 mt-0.5" />
                     {sede}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -99,13 +117,13 @@ export default function Footer() {
             >
               info@kamranp.es
             </a>
-            <Link
-              to="/contacto"
+            <a
+              href="/contacto"
               className="flex items-center gap-1.5 text-[#00D4AA] hover:text-[#33DDBB] text-sm font-medium transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
-            </Link>
+            </a>
           </div>
         </div>
       </div>
