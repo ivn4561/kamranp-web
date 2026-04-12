@@ -89,30 +89,15 @@ export default function Plataformas() {
           {plataformas.map((p) => (
             <div
               key={p.name}
-              className="h-64 md:h-72"
-              style={{ perspective: "1000px" }}
+              className="group h-64 md:h-72 [perspective:1000px]"
             >
-              {/* Flip container */}
-              <div
-                className="relative w-full h-full transition-transform duration-500"
-                style={{ transformStyle: "preserve-3d" }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform =
-                    "rotateY(180deg)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform =
-                    "rotateY(0deg)";
-                }}
-              >
+              {/* Flip inner */}
+              <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
                 {/* Front face */}
                 <div
-                  className="absolute inset-0 rounded-xl border p-6 flex flex-col items-center text-center overflow-hidden"
-                  style={{
-                    backgroundColor: p.bgColor,
-                    borderColor: p.borderColor,
-                    backfaceVisibility: "hidden",
-                  }}
+                  className="absolute inset-0 rounded-xl border p-6 flex flex-col items-center text-center overflow-hidden [backface-visibility:hidden]"
+                  style={{ backgroundColor: p.bgColor, borderColor: p.borderColor }}
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-sm mb-3 shrink-0"
@@ -133,13 +118,8 @@ export default function Plataformas() {
 
                 {/* Back face */}
                 <div
-                  className="absolute inset-0 rounded-xl border p-5 flex flex-col overflow-hidden"
-                  style={{
-                    backgroundColor: p.bgColor,
-                    borderColor: p.color + "60",
-                    backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
-                  }}
+                  className="absolute inset-0 rounded-xl border p-5 flex flex-col overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)]"
+                  style={{ backgroundColor: p.bgColor, borderColor: p.color + "60" }}
                 >
                   {/* Back header */}
                   <div className="flex items-center gap-2 mb-4 shrink-0">
@@ -187,6 +167,7 @@ export default function Plataformas() {
                     </ul>
                   </div>
                 </div>
+
               </div>
             </div>
           ))}
