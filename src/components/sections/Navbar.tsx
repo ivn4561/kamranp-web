@@ -77,14 +77,14 @@ export default function Navbar() {
               </button>
               {/* Dropdown panel — shown on group hover */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto -translate-y-2 group-hover:translate-y-0 transition-all duration-200">
-                <div className="bg-[#0F2040] border border-[#1a3050] rounded-xl shadow-xl shadow-black/20 p-2 w-60 animate-dropdown-in">
+                <div className="bg-[#0F2040] border border-[#1a3050] rounded-xl shadow-xl shadow-black/20 p-2 min-w-[260px] animate-dropdown-in">
                   {serviciosItems.map((item) => {
                     const Icon = item.icon;
                     return (
                       <button
                         key={item.label}
                         onClick={scrollToServicios}
-                        className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#132035] text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#132035] text-sm text-gray-300 hover:text-white transition-colors cursor-pointer text-left whitespace-nowrap"
                       >
                         <Icon className="w-4 h-4 text-[#00D4AA] shrink-0" />
                         {item.label}
