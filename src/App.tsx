@@ -5,6 +5,7 @@ import Hero from "@/components/sections/Hero";
 import Servicios from "@/components/sections/Servicios";
 import Plataformas from "@/components/sections/Plataformas";
 import Sedes from "@/components/sections/Sedes";
+import Resenas from "@/components/sections/Resenas";
 import Contacto from "@/components/sections/Contacto";
 import Footer from "@/components/sections/Footer";
 import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
@@ -20,6 +21,7 @@ function HomePage() {
         <Servicios />
         <Plataformas />
         <Sedes />
+        <Resenas />
         <Contacto />
       </main>
       <Footer />
