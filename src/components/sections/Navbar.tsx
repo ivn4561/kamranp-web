@@ -1,11 +1,29 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Banknote,
+  Smartphone,
+  Printer,
+  Headphones,
+  Package,
+  Monitor,
+} from "lucide-react";
 
-const navLinks = [
-  { to: "/#servicios",   label: "Servicios"     },
-  { to: "/#plataformas", label: "Plataformas"   },
-  { to: "/contacto",     label: "Contacto"      },
+const serviciosItems = [
+  { icon: Banknote,   label: "Envío de dinero" },
+  { icon: Smartphone, label: "Recargas de móvil" },
+  { icon: Printer,    label: "Impresiones y fotocopias" },
+  { icon: Headphones, label: "Accesorios y móviles" },
+  { icon: Package,    label: "Paquetería" },
+  { icon: Monitor,    label: "Internet y ordenadores" },
+];
+
+const otherNavLinks = [
+  { to: "/#plataformas", label: "Plataformas" },
+  { to: "/contacto",     label: "Contacto" },
   { to: "/sedes",        label: "Nuestras Sedes" },
 ];
 
@@ -14,8 +32,17 @@ const linkClass =
 const underline =
   "absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4AA] transition-all duration-300 group-hover:w-full";
 
+function scrollToServicios() {
+  if (window.location.pathname !== "/") {
+    window.location.href = "/#servicios";
+  } else {
+    document.querySelector("#servicios")?.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,7 +68,35 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {/* Servicios dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sm font-medium text-[#94A3B8] hover:text-white transition-colors relative">
+                Servicios
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                <span className={underline} />
+              </button>
+              {/* Dropdown panel — shown on group hover */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto -translate-y-2 group-hover:translate-y-0 transition-all duration-200">
+                <div className="bg-[#0F2040] border border-[#1a3050] rounded-xl shadow-xl shadow-black/20 p-2 w-60 animate-dropdown-in">
+                  {serviciosItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <button
+                        key={item.label}
+                        onClick={scrollToServicios}
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-[#132035] text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
+                      >
+                        <Icon className="w-4 h-4 text-[#00D4AA] shrink-0" />
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Other links */}
+            {otherNavLinks.map((link) => (
               <Link key={link.to} to={link.to} className={linkClass}>
                 {link.label}
                 <span className={underline} />
@@ -63,7 +118,44 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-[#0C1830] border-b border-[#1a3050]">
           <div className="px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
+            {/* Servicios expandable */}
+            <div>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="w-full flex items-center justify-between text-[#94A3B8] hover:text-white hover:bg-[#132035] px-4 py-3 rounded-lg transition-colors font-medium"
+              >
+                Servicios
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    servicesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {servicesOpen && (
+                <div className="ml-4 mt-1 flex flex-col gap-0.5">
+                  {serviciosItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <button
+                        key={item.label}
+                        onClick={() => {
+                          scrollToServicios();
+                          setIsOpen(false);
+                          setServicesOpen(false);
+                        }}
+                        className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#94A3B8] hover:text-white hover:bg-[#132035] transition-colors"
+                      >
+                        <Icon className="w-4 h-4 text-[#00D4AA] shrink-0" />
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Other links */}
+            {otherNavLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
