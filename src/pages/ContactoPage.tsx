@@ -8,15 +8,6 @@ import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 const sedes = [
   {
     num: "01",
-    name: "KAMRANP Campamento",
-    address: "Plaza de Andrés Soloaga, 1",
-    phone: "+34 672 818 465",
-    waNumber: "34672818465",
-    googleMapsUrl: "https://maps.google.com/?q=Plaza+de+Andrés+Soloaga+1+Madrid",
-    active: true,
-  },
-  {
-    num: "02",
     name: "KAMRANP Argüelles",
     address: "Calle Rodríguez San Pedro, 31",
     phone: "+34 675 030 620",
@@ -25,12 +16,21 @@ const sedes = [
     active: true,
   },
   {
-    num: "03",
+    num: "02",
     name: "KAMRANP Parque Vosa",
     address: "Calle Parque Vosa, 35",
     phone: "+34 641 21 91 64",
     waNumber: "34641219164",
     googleMapsUrl: "https://maps.google.com/?q=Calle+Parque+Vosa+35+Móstoles+Madrid",
+    active: true,
+  },
+  {
+    num: "03",
+    name: "KAMRANP Campamento",
+    address: "Plaza de Andrés Soloaga, 1",
+    phone: "+34 672 818 465",
+    waNumber: "34672818465",
+    googleMapsUrl: "https://maps.google.com/?q=Plaza+de+Andrés+Soloaga+1+Madrid",
     active: true,
   },
   {

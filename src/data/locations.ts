@@ -17,21 +17,6 @@ export interface Location {
 export const locations: Location[] = [
   {
     id: 1,
-    name: "KAMRANP Campamento",
-    address: "Plaza de Andrés Soloaga, 1",
-    city: "Madrid",
-    phone: "+34 672 818 465",
-    whatsapp: "34672818465",
-    email: "kamranp762@gmail.com",
-    hours: {
-      weekday: "10:00–22:00",
-      sunday: "10:00–22:00",
-    },
-    googleMapsUrl: "https://maps.google.com/?q=Plaza+de+Andrés+Soloaga+1+Madrid",
-    complete: true,
-  },
-  {
-    id: 2,
     name: "KAMRANP Argüelles",
     address: "Calle Rodríguez San Pedro, 31",
     city: "Madrid",
@@ -46,7 +31,7 @@ export const locations: Location[] = [
     complete: true,
   },
   {
-    id: 3,
+    id: 2,
     name: "KAMRANP Parque Vosa",
     address: "Calle Parque Vosa, 35",
     city: "Móstoles",
@@ -55,6 +40,21 @@ export const locations: Location[] = [
     email: "",
     hours: { weekday: "10:00–22:00", sunday: "10:00–22:00" },
     googleMapsUrl: "https://maps.google.com/?q=Calle+Parque+Vosa+35+Móstoles",
+    complete: true,
+  },
+  {
+    id: 3,
+    name: "KAMRANP Campamento",
+    address: "Plaza de Andrés Soloaga, 1",
+    city: "Madrid",
+    phone: "+34 672 818 465",
+    whatsapp: "34672818465",
+    email: "kamranp762@gmail.com",
+    hours: {
+      weekday: "10:00–22:00",
+      sunday: "10:00–22:00",
+    },
+    googleMapsUrl: "https://maps.google.com/?q=Plaza+de+Andrés+Soloaga+1+Madrid",
     complete: true,
   },
   {

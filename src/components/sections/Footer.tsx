@@ -12,9 +12,9 @@ const plataformas = ["Western Union", "Ria Money Transfer", "MoneyGram", "Europh
 
 const sedes = [
   "Calle Rodríguez San Pedro, 31 · Madrid",
-  "Calle Parque Vosa, 35 · Madrid",
+  "Calle Parque Vosa, 35 · Móstoles",
   "Plaza de Andrés Soloaga, 1 · Madrid",
-  "Calle de Zaratán, 5 · Madrid",
+  "Calle de Zaratán, 5 · Simancas",
 ];
 
 const linkClass = "text-[#64748B] text-sm hover:text-[#00D4AA] transition-colors";
